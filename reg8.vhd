@@ -34,7 +34,7 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 entity reg8 is
 	port(
 		carga : in std_logic_vector (7 downto 0);
-		cargaReg : in std_logic;
+		clk, rst, cargaReg : in std_logic;
 		output : out std_logic_vector (7 downto 0)
 	);
 end reg8;
@@ -43,10 +43,14 @@ architecture Behavioral of reg8 is
 signal output_signal : std_logic_vector (7 downto 0 ) := "00000000"; 
 begin
 
-process (carga, cargaReg)
+process (clk,rst,carga, cargaReg)
 begin
-	if (cargaReg = '1') then
-		output_signal <= carga;
+	if (rst = '1') then
+		output_signal <= "00000000";
+	elsif (rising_edge(clk)) then
+		if (cargaReg = '1') then
+			output_signal <= carga;
+		end if;
 	end if;
 end process;
 

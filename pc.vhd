@@ -34,7 +34,7 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 entity pc is
 	port(
 		carga : in std_logic_vector (7 downto 0);
-		incrementaPC, cargaPC : in std_logic;
+		clk, rst, incrementaPC, cargaPC : in std_logic;
 		output : out std_logic_vector (7 downto 0)
 	);
 end pc;
@@ -43,12 +43,16 @@ architecture Behavioral of PC is
 signal output_signal : std_logic_vector (7 downto 0 ) := "00000000";
 begin
 
-process(carga, incrementaPC,cargaPC)
+process(clk, rst, carga, incrementaPC,cargaPC)
 begin
-	if (cargaPC = '1') then
-		output_signal <= carga;
-	elsif (incrementaPC = '1') then
-		output_signal <= output_signal + 1;
+	if (rst = '1') then
+		output_signal <= "00000000";
+	elsif (rising_edge(clk)) then
+		if (cargaPC = '1') then
+			output_signal <= carga;
+		elsif (incrementaPC = '1') then
+			output_signal <= output_signal + 1;
+		end if;
 	end if;
 end process;
 

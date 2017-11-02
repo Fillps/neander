@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity reg_nz is
 	port(
 		carga : in std_logic_vector (1 downto 0);
-		cargaReg : in std_logic;
+		clk, rst, cargaReg : in std_logic;
 		output : out std_logic_vector (1 downto 0)
 	);
 end reg_nz;
@@ -41,10 +41,14 @@ architecture Behavioral of reg_nz is
 signal output_signal : std_logic_vector (1 downto 0 ) := "00"; 
 begin
 
-process (carga, cargaReg)
+process (clk,rst,carga, cargaReg)
 begin
-	if (cargaReg = '1') then
-		output_signal <= carga;
+	if (rst = '1') then
+		output_signal <= "00";
+	elsif (rising_edge(clk)) then	
+		if (cargaReg = '1') then
+			output_signal <= carga;
+		end if;
 	end if;
 end process;
 
