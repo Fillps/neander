@@ -19,7 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.STD_LOGIC_SIGNED.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 
 -- Uncomment the following library declaration if using
@@ -44,14 +44,26 @@ architecture Behavioral of ula is
 signal output_signal : std_logic_vector (7 downto 0 ) := "00000000"; 
 begin
 
+-- 000 - ADD
+-- 001 - AND
+-- 010 - OR
+-- 011 - NOT
+-- 100 - Y
+-- 101 - SUB
+-- 110 - SHR
+-- 111 - SHL
+
 process (X,Y,selULA)
 begin
 	case selULA is
-		when "000" => output_signal <= X + Y;
-		when "001" => output_signal <= X and Y;
-		when "010" => output_signal <= X or Y;
-		when "011" => output_signal <= not X;
-		when others => output <= Y;
+		when "000" => output_signal <= X + Y;					--ADD
+		when "001" => output_signal <= X and Y;				--AND
+		when "010" => output_signal <= X or Y;					--OR
+		when "011" => output_signal <= not X;					--NOT
+		when "100" => output_signal <= Y;						--Y
+		when "101" => output_signal <= X - Y;					--SUB
+		when "110" => output_signal <= '0'&X(7 downto 1);	--SHR
+		when others => output_signal <= X(6 downto 0)&'0';	--SHL
 	end case;
 
 	if (output_signal(7) = '1') then
