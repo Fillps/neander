@@ -70,9 +70,9 @@ signal Sai_Decod_Entra_UidadeControle   : std_logic_vector(13 downto 0);
 
 COMPONENT reg8
    PORT(
-		carga : in std_logic_vector (1 downto 0);
+		carga : in std_logic_vector (7 downto 0);
 		clk, rst, cargaReg : in std_logic;
-		output : out std_logic_vector (1 downto 0)
+		output : out std_logic_vector (7 downto 0)
 		);
 END COMPONENT;
  
@@ -154,7 +154,7 @@ begin
 			carga => Sai_Ula_EntraAC,
 			clk => clkMain,
 			rst => ResetMain,
-			cargaReg => CargaRDM,
+			cargaReg => CargaAC,
 			output => Sai_AC_entra_X_e_Mux2
 			);	
 	Reg_RDM: reg8
@@ -162,7 +162,7 @@ begin
 			carga => Sai_Mux2_Entra_RDM,
 			clk => clkMain,
 			rst => ResetMain,
-			cargaReg => CargaAC,
+			cargaReg => CargaRDM,
 			output => Sai_RDM_Entra_Y_PC_Mux1_RI_Bram
 			);
 	Reg_REM: reg8
@@ -171,7 +171,7 @@ begin
 			clk => clkMain,
 			rst => ResetMain,
 			cargaReg => CargaREM,
-			output => saidaGeral -- SERA QUE DA PRA COLOCAR DIRETO NO PINO DA BRAM. 
+			output => Sai_REM_Entra_Bram 
 			);
 	Reg_RI : reg8
 		PORT MAP( 
@@ -198,13 +198,13 @@ begin
 		cargaReg => cargaNz,
 		output => Sai_NZ_Entra_UnidadeControle
 		);	
-	LAU    : ula 
+	UAL    : ula 
 		PORT MAP(
 		X => Sai_AC_entra_X_e_Mux2,
 		Y => Sai_RDM_Entra_Y_PC_Mux1_RI_Bram,
 		selULA => selULA,
 		output => Sai_Ula_EntraAC,
-		nz => Negativo_Ou_Zero
+		nz => Sai_Ula_Entra_NZ
 	);	
 	Mux1   : mux 
 		PORT MAP(
@@ -230,7 +230,7 @@ begin
 		start => Start,
 		clk => clkMain,
 		rst => ResetMain,
-		NZ => Negativo_Ou_Zero,
+		NZ => Sai_NZ_Entra_UnidadeControle,
 		decod => Sai_Decod_Entra_UidadeControle,
 		cargaNZ => cargaNz,
 		selULA => selULA,
