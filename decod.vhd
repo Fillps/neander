@@ -31,7 +31,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity decod is
 	port(
-		opcode : in std_logic_vector (3 downto 0);
+		opcode : in std_logic_vector (7 downto 0);
 		
 		--0-NOP, 1-STA, 2-LDA, 3-ADD, 4-OR, 5-AND, 6-NOT, 7-SUB, 
 		--8-JMP, 9-JN, 10-JZ, 11-SHR, 12-SHL, 13-HLT
@@ -41,23 +41,30 @@ entity decod is
 end decod;
 
 architecture Behavioral of decod is
-	
+signal ParteAlta : std_logic_vector (3 downto 0);
+
 begin
 
-instruction_output <= "00000000000001" when (opcode = "0000") else --NOP
-							 "00000000000010" when (opcode = "0001") else --STA
-							 "00000000000100" when (opcode = "0010") else --LDA
-							 "00000000001000" when (opcode = "0011") else --ADD
-							 "00000000010000" when (opcode = "0100") else --OR
-							 "00000000100000" when (opcode = "0101") else --AND
-							 "00000001000000" when (opcode = "0110") else --NOT
-							 "00000010000000" when (opcode = "0111") else --SUB
-							 "00000100000000" when (opcode = "1000") else --JMP
-							 "00001000000000" when (opcode = "1001") else --JN
-							 "00010000000000" when (opcode = "1010") else --JZ
-							 "00100000000000" when (opcode = "1011") else --SHR
-							 "01000000000000" when (opcode = "1100") else --SHL
+ParteAlta(0) <= opcode(4);
+ParteAlta(1) <= opcode(5);
+ParteAlta(2) <= opcode(6);
+ParteAlta(3) <= opcode(7);
+
+instruction_output <= "00000000000001" when (ParteAlta = "0000") else --NOP
+							 "00000000000010" when (ParteAlta = "0001") else --STA
+							 "00000000000100" when (ParteAlta = "0010") else --LDA
+							 "00000000001000" when (ParteAlta = "0011") else --ADD
+							 "00000000010000" when (ParteAlta = "0100") else --OR
+							 "00000000100000" when (ParteAlta = "0101") else --AND
+							 "00000001000000" when (ParteAlta = "0110") else --NOT
+							 "00000010000000" when (ParteAlta = "0111") else --SUB
+							 "00000100000000" when (ParteAlta = "1000") else --JMP
+							 "00001000000000" when (ParteAlta = "1001") else --JN
+							 "00010000000000" when (ParteAlta = "1010") else --JZ
+							 "00100000000000" when (ParteAlta = "1011") else --SHR
+							 "01000000000000" when (ParteAlta = "1100") else --SHL
 							 "10000000000000"; --HLT
 
 end Behavioral;
+
 
