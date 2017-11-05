@@ -20,7 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
-USE IEEE.STD_LOGIC_ARITH.ALL
+USE IEEE.STD_LOGIC_ARITH.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,7 +33,7 @@ USE IEEE.STD_LOGIC_ARITH.ALL
 
 entity neander is
 	Port ( 
-		clkMain, ResetMain, Start : in std_logic;
+		clkMain, ResetMain, Start : in std_logic
 	);
 end neander;
 
@@ -49,7 +49,7 @@ signal cargaNz      : std_logic;
 signal SelMux1      : std_logic;
 signal SelMux2      : std_logic;
 signal readMEM      : std_logic;
-signal writeMEM     : std_logic;
+signal writeMEM     : std_logic_vector (0 downto 0);
 
 signal Sai_Ula_EntraAC                  : std_logic_vector(7 downto 0);
 signal Sai_AC_entra_X_e_Mux2            : std_logic_vector(7 downto 0);
@@ -60,13 +60,13 @@ signal Sai_Mux1_Entra_REM               : std_logic_vector(7 downto 0);
 signal Sai_RI_Entra_DECOD               : std_logic_vector(7 downto 0);
 signal Sai_Ula_Entra_NZ					: std_logic_vector(1 downto 0);																																
 signal Sai_NZ_Entra_UnidadeControle     : std_logic_vector(1 downto 0);
-signal Sai_NZ_Entra_UnidadeControle     : std_logic_vector(1 downto 0);
 signal selULA 							: std_logic_vector(2 downto 0);
-signal Negativo_Ou_Zero                 : std_logic_vector(1 downto 0);
 signal Sai_Bram_Entra_Mux2              : std_logic_vector(7 downto 0);
 signal Sai_REM_Entra_Bram               : std_logic_vector(7 downto 0);
 signal opcode                           : std_logic_vector(7 downto 0);
 signal Sai_Decod_Entra_UidadeControle   : std_logic_vector(13 downto 0);
+
+signal Sai_Bram_Entra_7Seg : std_logic_vector (7 downto 0);
 
 COMPONENT reg8
    PORT(
@@ -138,12 +138,27 @@ COMPONENT control_unit
 		cargaREM : OUT std_logic;
 		selREM : OUT std_logic;
 		readMEM : OUT std_logic;
-		writeMEM : OUT std_logic;
+		writeMEM : OUT std_logic_vector (0 downto 0);
 		cargaRDM : OUT std_logic;
 		selRDM : OUT std_logic;
 		cargaRI : OUT std_logic
 		);
 	END COMPONENT;
+
+COMPONENT bram
+  PORT (
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    clkb : IN STD_LOGIC;
+    web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addrb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    dinb : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+  );
+END COMPONENT;
 			
 
 begin
@@ -245,4 +260,20 @@ begin
 		selRDM => SelMux2,
 		cargaRI => CargaRI
 	);
+	
+  memory : bram
+  PORT MAP (
+    clka => clkMain,
+    wea => writeMEM,
+    addra => Sai_REM_Entra_Bram,
+    dina => Sai_RDM_Entra_Y_PC_Mux1_RI_Bram,
+    douta => Sai_Bram_Entra_Mux2,
+	 
+    clkb => '0',
+    web => "0",
+    addrb => "00000000",
+    dinb => "00000000",
+    doutb => Sai_Bram_Entra_7Seg
+  );
+
 end Behavioral;

@@ -56,7 +56,7 @@ entity control_unit is
 		cargaREM : out std_logic; 
 		selREM : out std_logic; -- 0 => PC, 1 => RDM
 		--MEM
-		readMEM, writeMEM : out std_logic;
+		writeMEM : out std_logic_vector (0 downto 0);
 		--RDM
 		cargaRDM : out std_logic;
 		selRDM : out std_logic; -- 0 => MEM, 1 => AC
@@ -91,8 +91,7 @@ begin
 			cargaPC <= '0';
 			cargaRDM <= '0';
 			cargaRI <= '0';
-			readMEM <= '0';
-			writeMEM <= '0';
+			writeMEM <= "0";
 			incrementaPC <= '0';
 			selRDM <= '0';
 			
@@ -198,7 +197,7 @@ begin
 			cargaRDM <= '0';
 			selRDM <= '0';
 			
-			writeMEM <= '1';
+			writeMEM <= "1";
 			next_st <= FIND_INSTR_ST;
 		when JMP_ST =>
 			cargaRDM <= '0';
@@ -229,7 +228,7 @@ begin
 			cargaREM <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
-			writeMEM <= '0';
+			writeMEM <= "0";
 			stop <= '0';
 			next_st <= IDLE_ST;
 		when others =>

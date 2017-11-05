@@ -45,10 +45,7 @@ signal ParteAlta : std_logic_vector (3 downto 0);
 
 begin
 
-ParteAlta(0) <= opcode(4);
-ParteAlta(1) <= opcode(5);
-ParteAlta(2) <= opcode(6);
-ParteAlta(3) <= opcode(7);
+ParteAlta <= opcode(7 downto 4);
 
 instruction_output <= "00000000000001" when (ParteAlta = "0000") else --NOP
 							 "00000000000010" when (ParteAlta = "0001") else --STA
