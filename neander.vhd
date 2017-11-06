@@ -38,6 +38,9 @@ entity neander is
 		Start : in std_logic; -- chave
 		alt_view : in std_logic; -- chave -- alterna em visualizar a memoria ou o AC + PC -- 1 = memoria; 0 = AC + PC
 		
+		continue : in std_logic; -- chave -- para continuar depois do hlt
+		
+		writeB : in std_logic; -- chave
 		ender_low : in std_logic; -- botao -- conta em HEXA no display 2, para navegar a mem
 		ender_high : in std_logic; -- botao -- conta em HEXA no display 1, para navegar a mem
 		
@@ -82,6 +85,13 @@ signal BRAM_b_output     : std_logic_vector (7 downto 0);
 signal BRAM_b_input      : std_logic_vector (7 downto 0);
 signal BRAM_b_low_input  : std_logic_vector (3 downto 0);
 signal BRAM_b_high_input : std_logic_vector (3 downto 0);
+signal BRAM_b_data_in : std_logic_vector (7 downto 0);
+signal BRAM_b_data_in_low, BRAM_b_data_in_high: std_logic_vector (3 downto 0);
+signal b_in_low, b_in_high : std_logic;
+signal b_writeMEM : std_logic_vector(0 downto 0) := "0";
+
+signal AC_low, AC_high, PC_low, PC_high : std_logic_vector (3 downto 0);
+
 
 signal clock200hz : std_logic;
 COMPONENT reg8
@@ -148,6 +158,7 @@ COMPONENT control_unit
 		decod : IN std_logic_vector(13 downto 0);  
 		prox_passo : IN std_logic;  
 		passo_a_passo : IN std_logic;
+		continue : IN std_logic;     
 		cargaNZ : OUT std_logic;
 		selULA : OUT std_logic_vector(2 downto 0);
 		cargaAC : OUT std_logic;
@@ -288,6 +299,7 @@ begin
 		decod => Decod_output,
 		prox_passo => prox_passo,
 		passo_a_passo => passo_a_passo,
+		continue => continue,
 		cargaNZ => cargaNZ,
 		selULA => selULA,
 		cargaAC => CargaAC,
@@ -310,9 +322,9 @@ begin
     douta => BRAM_output,
 	 
     clkb => clkMain,
-    web => "0",
+    web => b_writeMEM,
     addrb => BRAM_b_input,
-    dinb => "00000000",
+    dinb => BRAM_b_data_in,
     doutb => BRAM_b_output
   );
   
@@ -329,6 +341,10 @@ begin
 			end if;
 	end process divisor;
 
+  AC_low <= AC_output(3 downto 0);
+  AC_high <= AC_output(7 downto 4);
+  PC_low <= PC_output(3 downto 0);
+  PC_high <= PC_output(7 downto 4);
   
 	process(clock200hz, alt_view)
 	variable ctrl: bit_vector(1 downto 0);
@@ -353,22 +369,22 @@ begin
 					display <= binTo7seg(BRAM_b_high_input);
 					ctrl:="00";
 				end if;
-			else --visualizar ACC
+			else			--visualizar ACC
 				if (ctrl="00") then
 					selDisplay<="1110";
-					display <= binTo7seg(AC_output(3 downto 0));
+					display <= binTo7seg(AC_low);
 					ctrl:="01";
 				elsif (ctrl="01") then 
 					selDisplay<="1101";
-					display <= binTo7seg(AC_output(7 downto 4));						
+					display <= binTo7seg(AC_high);						
 					ctrl:="10";
 				elsif (ctrl="10") then 
 					selDisplay<="1011";
-					display <= binTo7seg(PC_output(3 downto 0));
+					display <= binTo7seg(PC_low);
 					ctrl:="11";
 				else
 					selDisplay<="0111";
-					display <= binTo7seg(PC_output(7 downto 4));
+					display <= binTo7seg(PC_high);
 					ctrl:="00";
 				end if;
 			end if;
@@ -389,9 +405,28 @@ begin
 		end if;
 	end process;
 	
+	process(b_in_low, alt_view)
+	begin
+		if (rising_edge(b_in_low) and alt_view = '1') then
+			BRAM_b_data_in_low <= BRAM_b_output(3 downto 0) + 1; 
+		end if;
+	end process;
+	
+	process(b_in_high, alt_view)
+	begin
+		if (rising_edge(b_in_high) and alt_view = '1') then
+			BRAM_b_data_in_high <= BRAM_b_output(7 downto 4) + 1; 
+		end if;
+	end process;
+	
+	b_in_high <= prox_passo;
+	b_in_low <= resetMain;
+	
+	BRAM_b_data_in <= BRAM_b_data_in_high & BRAM_b_data_in_low;
 	BRAM_b_input <= BRAM_b_high_input & BRAM_b_low_input;
 
-	
 	N_led <= NZ_output(0);
 	Z_led <= NZ_output(1);
+	
+	b_writeMEM(0) <= writeB;
 end Behavioral;

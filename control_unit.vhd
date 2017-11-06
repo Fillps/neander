@@ -43,7 +43,8 @@ entity control_unit is
 		--8-JMP, 9-JN, 10-JZ, 11-SHR, 12-SHL, 13-HLT
 		decod: in std_logic_vector (13 downto 0);
 		
-		prox_passo,  passo_a_passo : in std_logic;
+		prox_passo, passo_a_passo : in std_logic;
+		continue: in std_logic;
 	--SAIDAS
 		--REG_NZ
 		cargaNZ : out std_logic;
@@ -73,22 +74,23 @@ type state is (FIND_INSTR_1_ST, FIND_INSTR_2_ST, FIND_INSTR_3_ST, READ_INSTR_ST,
 					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, WAIT_STEP_ST);
 signal current_st, next_st : state;
 signal stop : std_logic := '0';
+signal prox_passo_reset, prox_passo_feito : std_logic;
 begin
 
 process (clk, rst, current_st, next_st)
 begin
- if rst ='1' then
+ if (rst = '1') then
    current_st <= RST_ST;
  elsif (rising_edge(clk)) then
    current_st <= next_st;
  end if;
  end process;
 
-process(nz, decod, start, next_st, current_st, stop, passo_a_passo, prox_passo)
-	variable prox_passo_feito : integer range 0 to 1;
+process(nz, decod, start, next_st, current_st, stop, passo_a_passo, prox_passo, continue)
 begin
 	case current_st is 
 		when FIND_INSTR_1_ST =>
+			prox_passo_feito <= '1';
 			cargaNZ <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
@@ -97,11 +99,8 @@ begin
 			writeMEM <= "0";
 			incrementaPC <= '0';
 			selRDM <= '0';
-			if (prox_passo = '0') then
-				prox_passo_feito := 1;
-			end if;
-			if ((prox_passo = '1' and prox_passo_feito = 1) or passo_a_passo = '0') then
-				prox_passo_feito := 0;
+			if (prox_passo_reset = '1' or passo_a_passo = '0') then
+				prox_passo_feito <= '0';
 				next_st <= FIND_INSTR_2_ST;
 			else
 				next_st <= FIND_INSTR_1_ST;
@@ -243,7 +242,7 @@ begin
 			stop <= '1';
 			next_st <= IDLE_ST;
 		when IDLE_ST =>
-			if (stop = '0' and start = '1') then
+			if ((stop = '0' or continue = '0') and start = '1') then
 				next_st <= FIND_INSTR_1_ST;
 			else
 				next_st <= IDLE_ST;
@@ -265,7 +264,14 @@ begin
 			next_st <= IDLE_ST;
 	end case;
 end process;
-	
-	
+
+process(prox_passo)
+begin
+	if (prox_passo_reset = '1' and prox_passo_feito = '0') then
+		prox_passo_reset <= '0';
+	elsif (rising_edge(prox_passo)) then
+		prox_passo_reset <= '1';
+	end if;
+end process;
 end Behavioral;
 
