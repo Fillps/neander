@@ -67,7 +67,8 @@ end control_unit;
 
 architecture Behavioral of control_unit is
 
-type state is (FIND_INSTR_ST, READ_INSTR_ST, RI_ST, FIND_DATA_ST, READ_MEMORY, FIND_ADDRESS, ULA_1_ST, 
+type state is (FIND_INSTR_1_ST, READ_INSTR_ST, FIND_INSTR_2_ST, RI_1_ST, RI_2_ST, FIND_DATA_ST, 
+					READ_MEMORY_1_ST, READ_MEMORY_2_ST, FIND_ADDRESS_1_ST, FIND_ADDRESS_2_ST, ULA_1_ST, 
 					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST);
 signal current_st, next_st : state;
 signal stop : std_logic := '0';
@@ -85,7 +86,7 @@ begin
 process(nz, decod, start, next_st, current_st, stop)
 begin
 	case current_st is 
-		when FIND_INSTR_ST =>
+		when FIND_INSTR_1_ST =>
 			cargaNZ <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
@@ -97,22 +98,28 @@ begin
 			
 			selREM <= '0'; -- REM <= PC
 			cargaREM <= '1';
-			
+			next_st <= FIND_INSTR_2_ST;
+		when FIND_INSTR_2_ST =>
+			cargaREM <= '0';
+		
 			next_st <= READ_INSTR_ST;
 		when READ_INSTR_ST =>
 			cargaREM <= '0';
-			
 			cargaRDM <= '1';
 			incrementaPC <= '1';
 			
-			next_st <= RI_ST;
-		when RI_ST =>
+			next_st <= RI_1_ST;
+		when RI_1_ST =>
 			incrementaPC <= '0';
 			cargaRDM <= '0';
 			
 			cargaRI <= '1';
+			next_st <= RI_2_ST;
+		when RI_2_ST =>
+			cargaRI <= '0';
+			
 			if (decod(0) = '1') then --NOP
-				next_st <= FIND_INSTR_ST;
+				next_st <= FIND_INSTR_1_ST;
 			elsif ((decod(9) = '1' and nz(0) = '0') or (decod(10) = '1' and nz(1) = '0')) then --JZ and N = 0, JN and Z = 0
 				next_st <= FALSE_JMP_ST;
 			elsif (decod(13) = '1') then --HLT
@@ -123,27 +130,32 @@ begin
 				next_st <= FIND_DATA_ST;
 			end if;
 		when FIND_DATA_ST =>
-			cargaRI <= '0';
 			
 			selREM <= '0';
 			cargaREM <= '1';
-			next_st <= READ_MEMORY;
-		when READ_MEMORY =>
+			next_st <= READ_MEMORY_1_ST;
+		when READ_MEMORY_1_ST => --espera o clk da bram
 			cargaREM <= '0';
 			
+			next_st <= READ_MEMORY_2_ST;
+		when READ_MEMORY_2_ST =>
 			cargaRDM <= '1';
 			incrementaPC <= '1';
 			if (decod(8) = '1' or decod(9) = '1' or decod(10) = '1') then
 				next_st <= JMP_ST;
 			else
-				next_st <= FIND_ADDRESS;
+				next_st <= FIND_ADDRESS_1_ST;
 			end if;
-		when FIND_ADDRESS =>
+		when FIND_ADDRESS_1_ST =>
 			cargaRDM <= '0';
 			incrementaPC <= '0';
 			
 			selREM <= '1';
 			cargaREM <= '1';
+			next_st <= FIND_ADDRESS_2_ST;
+		when FIND_ADDRESS_2_ST =>
+			cargaREM <= '0';
+			selREM <= '0';
 			
 			if (decod(1) = '1') then
 				next_st <= STA_1_ST;
@@ -185,7 +197,7 @@ begin
 			cargaRDM <= '0';
 			cargaNZ <= '1';
 			cargaAC <= '1';
-			next_st <= FIND_INSTR_ST;
+			next_st <= FIND_INSTR_1_ST;
 		when STA_1_ST =>
 			cargaREM <= '0';
 			
@@ -198,18 +210,18 @@ begin
 			selRDM <= '0';
 			
 			writeMEM <= "1";
-			next_st <= FIND_INSTR_ST;
+			next_st <= FIND_INSTR_1_ST;
 		when JMP_ST =>
 			cargaRDM <= '0';
 			incrementaPC <= '0';
 			
 			cargaPC <= '1';
-			next_st <= FIND_INSTR_ST;
+			next_st <= FIND_INSTR_1_ST;
 		when FALSE_JMP_ST =>
 			cargaRI <= '0';
 			
 			incrementaPC <= '1';
-			next_st <= FIND_INSTR_ST;
+			next_st <= FIND_INSTR_1_ST;
 		when HLT_ST =>
 			cargaRI <= '0';
 			
@@ -219,7 +231,7 @@ begin
 			if (stop = '1' or start = '0') then
 				next_st <= IDLE_ST;
 			else
-				next_st <= FIND_INSTR_ST;
+				next_st <= FIND_INSTR_1_ST;
 			end if;
 		when RST_ST =>
 			cargaNZ <= '0';
@@ -228,6 +240,7 @@ begin
 			cargaREM <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
+			incrementaPC <= '0';
 			writeMEM <= "0";
 			stop <= '0';
 			next_st <= IDLE_ST;
