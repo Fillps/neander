@@ -43,6 +43,7 @@ entity control_unit is
 		--8-JMP, 9-JN, 10-JZ, 11-SHR, 12-SHL, 13-HLT
 		decod: in std_logic_vector (13 downto 0);
 		
+		prox_passo,  passo_a_passo : in std_logic;
 	--SAIDAS
 		--REG_NZ
 		cargaNZ : out std_logic;
@@ -67,9 +68,9 @@ end control_unit;
 
 architecture Behavioral of control_unit is
 
-type state is (FIND_INSTR_1_ST, READ_INSTR_ST, FIND_INSTR_2_ST, RI_1_ST, RI_2_ST, FIND_DATA_ST, 
+type state is (FIND_INSTR_1_ST, FIND_INSTR_2_ST, FIND_INSTR_3_ST, READ_INSTR_ST, RI_1_ST, RI_2_ST, FIND_DATA_ST, 
 					READ_MEMORY_1_ST, READ_MEMORY_2_ST, FIND_ADDRESS_1_ST, FIND_ADDRESS_2_ST, ULA_1_ST, 
-					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST);
+					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, WAIT_STEP_ST);
 signal current_st, next_st : state;
 signal stop : std_logic := '0';
 begin
@@ -83,7 +84,8 @@ begin
  end if;
  end process;
 
-process(nz, decod, start, next_st, current_st, stop)
+process(nz, decod, start, next_st, current_st, stop, passo_a_passo, prox_passo)
+	variable prox_passo_feito : integer range 0 to 1;
 begin
 	case current_st is 
 		when FIND_INSTR_1_ST =>
@@ -95,11 +97,21 @@ begin
 			writeMEM <= "0";
 			incrementaPC <= '0';
 			selRDM <= '0';
+			if (prox_passo = '0') then
+				prox_passo_feito := 1;
+			end if;
+			if ((prox_passo = '1' and prox_passo_feito = 1) or passo_a_passo = '0') then
+				prox_passo_feito := 0;
+				next_st <= FIND_INSTR_2_ST;
+			else
+				next_st <= FIND_INSTR_1_ST;
+			end if;
+		when FIND_INSTR_2_ST =>
 			
 			selREM <= '0'; -- REM <= PC
 			cargaREM <= '1';
-			next_st <= FIND_INSTR_2_ST;
-		when FIND_INSTR_2_ST =>
+			next_st <= FIND_INSTR_3_ST;
+		when FIND_INSTR_3_ST =>
 			cargaREM <= '0';
 		
 			next_st <= READ_INSTR_ST;
@@ -224,14 +236,17 @@ begin
 			next_st <= FIND_INSTR_1_ST;
 		when HLT_ST =>
 			cargaRI <= '0';
+			cargaPC <= '0';
+			cargaAC <= '0';
+			incrementaPC <= '0';
 			
 			stop <= '1';
 			next_st <= IDLE_ST;
 		when IDLE_ST =>
-			if (stop = '1' or start = '0') then
-				next_st <= IDLE_ST;
-			else
+			if (stop = '0' and start = '1') then
 				next_st <= FIND_INSTR_1_ST;
+			else
+				next_st <= IDLE_ST;
 			end if;
 		when RST_ST =>
 			cargaNZ <= '0';
@@ -244,10 +259,13 @@ begin
 			writeMEM <= "0";
 			stop <= '0';
 			next_st <= IDLE_ST;
+		when WAIT_STEP_ST =>
+			
 		when others =>
 			next_st <= IDLE_ST;
 	end case;
 end process;
-
+	
+	
 end Behavioral;
 

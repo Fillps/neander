@@ -1,0 +1,24 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "display[0]" LOC = L14;
+NET "display[1]" LOC = H12;
+NET "display[2]" LOC = N14;
+NET "display[3]" LOC = N11;
+NET "display[4]" LOC = P12;
+NET "display[5]" LOC = L13;
+NET "display[6]" LOC = M12;
+NET "selDisplay[0]" LOC = F12;
+NET "selDisplay[1]" LOC = J12;
+NET "selDisplay[2]" LOC = M13;
+NET "selDisplay[3]" LOC = K14;
+NET "N_led" LOC = M11;
+NET "Z_led" LOC = M5;
+NET "Start" LOC = N3;
+NET "ResetMain" LOC = G12;
+NET "prox_passo" LOC = C11;
+NET "passo_a_passo" LOC = F3;
+NET "clkMain" LOC = B8;
+NET "ender_high" LOC = A7;
+NET "ender_low" LOC = M4;
+NET "alt_view" LOC = E2;

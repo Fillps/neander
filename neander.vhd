@@ -41,6 +41,9 @@ entity neander is
 		ender_low : in std_logic; -- botao -- conta em HEXA no display 2, para navegar a mem
 		ender_high : in std_logic; -- botao -- conta em HEXA no display 1, para navegar a mem
 		
+		passo_a_passo : in std_logic; -- chave: 0=passo a passo desligado, 1 = ligado
+		prox_passo : in std_logic; -- botao para o proximo passo
+		
 		selDisplay : out std_logic_vector (3 downto 0); -- seleciona o display
 		display : out std_logic_vector (6 downto 0); -- display 7 seg
 		N_led : out std_logic; -- led
@@ -80,6 +83,7 @@ signal BRAM_b_input : std_logic_vector (7 downto 0);
 signal BRAM_b_low_input : std_logic_vector (3 downto 0);
 signal BRAM_b_high_input : std_logic_vector (3 downto 0);
 
+signal clock200hz : std_logic;
 COMPONENT reg8
    PORT(
 		carga : in std_logic_vector (7 downto 0);
@@ -141,7 +145,9 @@ COMPONENT control_unit
 		clk : IN std_logic;
 		rst : IN std_logic;
 		NZ : IN std_logic_vector(1 downto 0);
-		decod : IN std_logic_vector(13 downto 0);          
+		decod : IN std_logic_vector(13 downto 0);  
+		prox_passo : IN std_logic;  
+		passo_a_passo : IN std_logic;
 		cargaNZ : OUT std_logic;
 		selULA : OUT std_logic_vector(2 downto 0);
 		cargaAC : OUT std_logic;
@@ -280,6 +286,8 @@ begin
 		rst => ResetMain,
 		NZ => NZ_output,
 		decod => Decod_output,
+		prox_passo => prox_passo,
+		passo_a_passo => passo_a_passo,
 		cargaNZ => cargaNZ,
 		selULA => selULA,
 		cargaAC => CargaAC,
@@ -308,10 +316,24 @@ begin
     doutb => BRAM_b_output
   );
   
-	process(clkMain, alt_view)
+  divisor:process(clkMain)
+		variable conta200:integer range 0 to 62500;
+		begin
+			if (rising_edge(clkMain)) then
+				if (conta200 < 62500) then
+					conta200:=conta200 +1;
+				else
+					conta200:=0;
+					clock200hz<=not(clock200hz);
+				end if;
+			end if;
+	end process divisor;
+
+  
+	process(clock200hz, alt_view)
 	variable ctrl: bit_vector(1 downto 0);
 	begin
-		if (rising_edge(clkMain)) then
+		if (rising_edge(clock200hz)) then
 			
 			if (alt_view = '1') then -- visualizar memoria
 				if (ctrl="00") then
@@ -370,4 +392,6 @@ begin
 	BRAM_b_input <= BRAM_b_high_input & BRAM_b_low_input;
 
 	
+	N_led <= NZ_output(0);
+	Z_led <= NZ_output(1);
 end Behavioral;
