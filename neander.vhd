@@ -64,23 +64,23 @@ signal SelMux1      : std_logic;
 signal SelMux2      : std_logic;
 signal writeMEM     : std_logic_vector (0 downto 0);
 
-signal ULA_output                  : std_logic_vector(7 downto 0);
-signal AC_output            : std_logic_vector(7 downto 0);
-signal RDM_output  : std_logic_vector(7 downto 0);
-signal PC_output                : std_logic_vector(7 downto 0);
-signal Mux2_output               : std_logic_vector(7 downto 0);
-signal Mux1_output               : std_logic_vector(7 downto 0);
-signal RI_output               : std_logic_vector(7 downto 0);
-signal ULA_NZ_output					: std_logic_vector(1 downto 0);																																
-signal NZ_output     : std_logic_vector(1 downto 0);
-signal selULA 							: std_logic_vector(2 downto 0);
-signal BRAM_output              : std_logic_vector(7 downto 0);
-signal REM_output               : std_logic_vector(7 downto 0);
+signal ULA_output     : std_logic_vector(7 downto 0);
+signal AC_output      : std_logic_vector(7 downto 0);
+signal RDM_output     : std_logic_vector(7 downto 0);
+signal PC_output      : std_logic_vector(7 downto 0);
+signal Mux2_output    : std_logic_vector(7 downto 0);
+signal Mux1_output    : std_logic_vector(7 downto 0);
+signal RI_output      : std_logic_vector(7 downto 0);
+signal ULA_NZ_output  : std_logic_vector(1 downto 0);																																
+signal NZ_output      : std_logic_vector(1 downto 0);
+signal selULA 	      : std_logic_vector(2 downto 0);
+signal BRAM_output    : std_logic_vector(7 downto 0);
+signal REM_output     : std_logic_vector(7 downto 0);
 signal Decod_output   : std_logic_vector(13 downto 0);
 
-signal BRAM_b_output : std_logic_vector (7 downto 0);
-signal BRAM_b_input : std_logic_vector (7 downto 0);
-signal BRAM_b_low_input : std_logic_vector (3 downto 0);
+signal BRAM_b_output     : std_logic_vector (7 downto 0);
+signal BRAM_b_input      : std_logic_vector (7 downto 0);
+signal BRAM_b_low_input  : std_logic_vector (3 downto 0);
 signal BRAM_b_high_input : std_logic_vector (3 downto 0);
 
 signal clock200hz : std_logic;
