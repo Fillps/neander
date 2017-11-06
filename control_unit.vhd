@@ -135,8 +135,8 @@ begin
 				next_st <= FALSE_JMP_ST;
 			elsif (decod(13) = '1') then --HLT
 				next_st <= HLT_ST;
-			elsif (decod(6) = '1') then --NOT
-				next_st <= ULA_2_ST;
+			elsif (decod(6) = '1' or decod(11) = '1' or decod(12) = '1') then --NOT, SHR, SHL
+				next_st <= ULA_1_ST;
 			else 	
 				next_st <= FIND_DATA_ST;
 			end if;
