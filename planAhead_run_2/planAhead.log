@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Mon Nov 06 12:45:59 2017
+# Process ID: 6884
+# Log file: D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2/planAhead.log
+# Journal file: D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pa.fromNetlist.tcl}
+# create_project -name neander -dir "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2" -part xc3s100ecp132-4
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite: 
+     D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2/neander.ppr
+     D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2/neander.data
+
+    while executing
+"create_project -name neander -dir "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_2" -part xc3s100ecp132-4"
+    (file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pa.fromNetlist.tcl" line 4)
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Mon Nov 06 12:46:33 2017...
+INFO: [Common 17-83] Releasing license: PlanAhead

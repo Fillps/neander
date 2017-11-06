@@ -1,0 +1,1 @@
+vhdtdtfi -prj neander -o "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhi" -module control_unit -template D:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work control_unit.vhd 

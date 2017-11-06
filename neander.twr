@@ -1,0 +1,134 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf
+neander.ucf
+
+Design file:              neander.ncd
+Physical constraint file: neander.pcf
+Device,package,speed:     xc3s100e,cp132,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock ResetMain
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+alt_view    |    0.304(R)|    2.341(R)|ResetMain_IBUF    |   0.000|
+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock clkMain
+-------------+------------+------------+------------------+--------+
+             |Max Setup to|Max Hold to |                  | Clock  |
+Source       | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+-------------+------------+------------+------------------+--------+
+Start        |    3.803(R)|   -1.078(R)|clkMain_BUFGP     |   0.000|
+continue     |    3.613(R)|   -0.805(R)|clkMain_BUFGP     |   0.000|
+passo_a_passo|    2.478(R)|    0.858(R)|clkMain_BUFGP     |   0.000|
+writeB       |    2.391(R)|   -0.568(R)|clkMain_BUFGP     |   0.000|
+-------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock prox_passo
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+alt_view    |    1.330(R)|    0.788(R)|prox_passo_BUFGP  |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clkMain to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+N_led       |    8.730(R)|clkMain_BUFGP     |   0.000|
+Z_led       |    8.011(R)|clkMain_BUFGP     |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock ResetMain
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clkMain        |    5.705|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clkMain
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ResetMain      |    5.027|         |         |         |
+clkMain        |    7.355|         |         |         |
+ender_high     |    3.111|         |         |         |
+ender_low      |    4.269|         |         |         |
+prox_passo     |    4.634|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock ender_high
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ender_high     |    2.333|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock ender_low
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+ender_low      |    2.422|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock prox_passo
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clkMain        |    5.863|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Mon Nov 06 19:32:46 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 212 MB
+
+
+

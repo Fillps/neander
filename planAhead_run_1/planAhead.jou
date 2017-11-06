@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Mon Nov 06 12:45:46 2017
+# Process ID: 13036
+# Log file: D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_1/planAhead.log
+# Journal file: D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pa.fromNetlist.tcl}
+set_property package_pin "" [get_ports [list  {display[6]}]]
+set_property package_pin "" [get_ports [list  {display[6]}]]
+startgroup
+set_property package_pin L14 [get_ports {display[0]}]
+endgroup
+startgroup
+set_property package_pin H12 [get_ports {display[1]}]
+endgroup
+startgroup
+set_property package_pin N14 [get_ports {display[2]}]
+endgroup
+startgroup
+set_property package_pin N11 [get_ports {display[3]}]
+endgroup
+startgroup
+set_property package_pin P12 [get_ports {display[4]}]
+endgroup
+startgroup
+set_property package_pin L13 [get_ports {display[5]}]
+endgroup
+startgroup
+set_property package_pin M12 [get_ports {display[6]}]
+endgroup
+startgroup
+set_property package_pin K14 [get_ports {selDisplay[0]}]
+endgroup
+startgroup
+set_property package_pin M13 [get_ports {selDisplay[1]}]
+endgroup
+startgroup
+set_property package_pin J12 [get_ports {selDisplay[2]}]
+endgroup
+startgroup
+set_property package_pin F12 [get_ports {selDisplay[3]}]
+endgroup
+startgroup
+set_property package_pin M11 [get_ports N_led]
+endgroup
+startgroup
+set_property package_pin M5 [get_ports Z_led]
+endgroup
+startgroup
+set_property package_pin N3 [get_ports Start]
+endgroup
+startgroup
+set_property package_pin G12 [get_ports ResetMain]
+endgroup
+startgroup
+set_property package_pin C11 [get_ports prox_passo]
+endgroup
+startgroup
+set_property package_pin F3 [get_ports passo_a_passo]
+endgroup
+startgroup
+set_property package_pin B8 [get_ports clkMain]
+endgroup
+startgroup
+set_property package_pin A7 [get_ports ender_high]
+endgroup
+startgroup
+set_property package_pin M4 [get_ports ender_low]
+endgroup
+save_constraints
+startgroup
+set_property package_pin E2 [get_ports alt_view]
+endgroup
+save_constraints

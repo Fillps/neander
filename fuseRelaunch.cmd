@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander_isim_beh.exe" -prj "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander_beh.prj" "work.neander" 

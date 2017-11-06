@@ -1,0 +1,893 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: neander.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "neander.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "neander"
+Output Format                      : NGC
+Target Device                      : xc3s100e-4-cp132
+
+---- Source Options
+Top Module Name                    : neander
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg8.vhd" in Library work.
+Architecture behavioral of Entity reg8 is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhd" in Library work.
+Architecture behavioral of Entity pc is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg_nz.vhd" in Library work.
+Architecture behavioral of Entity reg_nz is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ula.vhd" in Library work.
+Architecture behavioral of Entity ula is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/mux.vhd" in Library work.
+Architecture behavioral of Entity mux is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/decod.vhd" in Library work.
+Architecture behavioral of Entity decod is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" in Library work.
+Entity <control_unit> compiled.
+Entity <control_unit> (Architecture <behavioral>) compiled.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ipcore_dir/bram.vhd" in Library work.
+Architecture bram_a of Entity bram is up to date.
+Compiling vhdl file "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" in Library work.
+Architecture behavioral of Entity neander is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <neander> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <reg8> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <pc> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <reg_nz> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ula> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mux> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <decod> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <control_unit> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <neander> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 316: Instantiating black box module <bram>.
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" line 209: Mux is complete : default of case is discarded
+Entity <neander> analyzed. Unit <neander> generated.
+
+Analyzing Entity <reg8> in library <work> (Architecture <behavioral>).
+Entity <reg8> analyzed. Unit <reg8> generated.
+
+Analyzing Entity <pc> in library <work> (Architecture <behavioral>).
+Entity <pc> analyzed. Unit <pc> generated.
+
+Analyzing Entity <reg_nz> in library <work> (Architecture <behavioral>).
+Entity <reg_nz> analyzed. Unit <reg_nz> generated.
+
+Analyzing Entity <ula> in library <work> (Architecture <behavioral>).
+Entity <ula> analyzed. Unit <ula> generated.
+
+Analyzing Entity <mux> in library <work> (Architecture <behavioral>).
+Entity <mux> analyzed. Unit <mux> generated.
+
+Analyzing Entity <decod> in library <work> (Architecture <behavioral>).
+Entity <decod> analyzed. Unit <decod> generated.
+
+Analyzing Entity <control_unit> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" line 89: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <prox_passo_reset>
+WARNING:Xst:819 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" line 268: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <prox_passo_reset>, <prox_passo_feito>
+Entity <control_unit> analyzed. Unit <control_unit> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <reg8>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg8.vhd".
+    Found 8-bit register for signal <output_signal>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <reg8> synthesized.
+
+
+Synthesizing Unit <pc>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhd".
+    Found 8-bit up counter for signal <output_signal>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <pc> synthesized.
+
+
+Synthesizing Unit <reg_nz>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg_nz.vhd".
+    Found 2-bit register for signal <output_signal>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <reg_nz> synthesized.
+
+
+Synthesizing Unit <ula>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ula.vhd".
+    Found 8-bit 8-to-1 multiplexer for signal <output_signal>.
+    Found 8-bit addsub for signal <output_signal$addsub0000>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   8 Multiplexer(s).
+Unit <ula> synthesized.
+
+
+Synthesizing Unit <mux>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/mux.vhd".
+Unit <mux> synthesized.
+
+
+Synthesizing Unit <decod>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/decod.vhd".
+WARNING:Xst:647 - Input <opcode<3:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16x14-bit ROM for signal <instruction_output>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <decod> synthesized.
+
+
+Synthesizing Unit <control_unit>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd".
+WARNING:Xst:737 - Found 1-bit latch for signal <prox_passo_feito>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <selULA>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Using one-hot encoding for signal <current_st>.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaPC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 21-bit latch for signal <next_st>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaNZ>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaRI>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaRDM>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaREM>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <incrementaPC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <selRDM>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <selREM>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <writeMEM_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <stop>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <cargaAC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 21-bit register for signal <current_st>.
+    Found 1-bit register for signal <prox_passo_reset>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <control_unit> synthesized.
+
+
+Synthesizing Unit <neander>.
+    Related source file is "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd".
+    Found finite state machine <FSM_0> for signal <ctrl>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clock200hz                (rising_edge)        |
+    | Power Up State     | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16x7-bit ROM for signal <display$mux0016> created at line 193.
+    Found 16x7-bit ROM for signal <display$mux0015> created at line 193.
+    Found 4-bit register for signal <selDisplay>.
+    Found 7-bit register for signal <display>.
+    Found 4-bit register for signal <BRAM_b_data_in_high>.
+    Found 4-bit adder for signal <BRAM_b_data_in_high$add0000> created at line 418.
+    Found 4-bit register for signal <BRAM_b_data_in_low>.
+    Found 4-bit adder for signal <BRAM_b_data_in_low$add0000> created at line 411.
+    Found 4-bit up counter for signal <BRAM_b_high_input>.
+    Found 4-bit up counter for signal <BRAM_b_low_input>.
+    Found 1-bit register for signal <clock200hz>.
+    Found 16-bit comparator less for signal <clock200hz$cmp_lt0000> created at line 335.
+    Found 16-bit up counter for signal <conta200>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 ROM(s).
+	inferred   3 Counter(s).
+	inferred  20 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <neander> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 3
+ 16x14-bit ROM                                         : 1
+ 16x7-bit ROM                                          : 2
+# Adders/Subtractors                                   : 3
+ 4-bit adder                                           : 2
+ 8-bit addsub                                          : 1
+# Counters                                             : 4
+ 16-bit up counter                                     : 1
+ 4-bit up counter                                      : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 12
+ 1-bit register                                        : 2
+ 2-bit register                                        : 1
+ 21-bit register                                       : 1
+ 4-bit register                                        : 3
+ 7-bit register                                        : 1
+ 8-bit register                                        : 4
+# Latches                                              : 14
+ 1-bit latch                                           : 12
+ 21-bit latch                                          : 1
+ 3-bit latch                                           : 1
+# Comparators                                          : 1
+ 16-bit comparator less                                : 1
+# Multiplexers                                         : 1
+ 8-bit 8-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <ctrl/FSM> on signal <ctrl[1:4]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 0001
+ 01    | 0010
+ 10    | 0100
+ 11    | 1000
+-------------------
+Reading core <ipcore_dir/bram.ngc>.
+Loading core <bram> for timing and area information for instance <memory>.
+WARNING:Xst:1293 - FF/Latch <20> has a constant value of 0 in block <current_st>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <0> has a constant value of 0 in block <20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <output_signal_0> of sequential type is unconnected in block <Reg_RI>.
+WARNING:Xst:2677 - Node <output_signal_1> of sequential type is unconnected in block <Reg_RI>.
+WARNING:Xst:2677 - Node <output_signal_2> of sequential type is unconnected in block <Reg_RI>.
+WARNING:Xst:2677 - Node <output_signal_3> of sequential type is unconnected in block <Reg_RI>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <0>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <1>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <2>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <3>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <4>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <5>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <6>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <7>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <8>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <9>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <10>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <11>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <12>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <13>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <14>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <15>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <16>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <17>.
+WARNING:Xst:1294 - Latch <0> is equivalent to a wire in block <18>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 3
+ 16x14-bit ROM                                         : 1
+ 16x7-bit ROM                                          : 2
+# Adders/Subtractors                                   : 3
+ 4-bit adder                                           : 2
+ 8-bit addsub                                          : 1
+# Counters                                             : 4
+ 16-bit up counter                                     : 1
+ 4-bit up counter                                      : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 76
+ Flip-Flops                                            : 76
+# Latches                                              : 14
+ 1-bit latch                                           : 12
+ 21-bit latch                                          : 1
+ 3-bit latch                                           : 1
+# Comparators                                          : 1
+ 16-bit comparator less                                : 1
+# Multiplexers                                         : 1
+ 8-bit 8-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <20> in Unit <LPM_LATCH_3> is equivalent to the following FF/Latch, which will be removed : <19> 
+WARNING:Xst:1293 - FF/Latch <20> has a constant value of 0 in block <LPM_LATCH_3>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <current_st_20> has a constant value of 0 in block <control_unit>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1294 - Latch <next_st_0> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_1> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_2> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_3> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_4> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_5> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_6> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_7> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_8> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_9> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_10> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_11> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_12> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_13> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_14> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_15> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_16> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_17> is equivalent to a wire in block <control_unit>.
+WARNING:Xst:1294 - Latch <next_st_18> is equivalent to a wire in block <control_unit>.
+
+Optimizing unit <neander> ...
+
+Optimizing unit <reg8> ...
+
+Optimizing unit <ula> ...
+
+Optimizing unit <control_unit> ...
+WARNING:Xst:2677 - Node <Reg_RI/output_signal_3> of sequential type is unconnected in block <neander>.
+WARNING:Xst:2677 - Node <Reg_RI/output_signal_2> of sequential type is unconnected in block <neander>.
+WARNING:Xst:2677 - Node <Reg_RI/output_signal_1> of sequential type is unconnected in block <neander>.
+WARNING:Xst:2677 - Node <Reg_RI/output_signal_0> of sequential type is unconnected in block <neander>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block neander, actual ratio is 26.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 107
+ Flip-Flops                                            : 107
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : neander.ngr
+Top Level Output File Name         : neander
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 23
+
+Cell Usage :
+# BELS                             : 443
+#      GND                         : 2
+#      INV                         : 7
+#      LUT1                        : 18
+#      LUT2                        : 21
+#      LUT2_L                      : 1
+#      LUT3                        : 102
+#      LUT3_L                      : 2
+#      LUT4                        : 148
+#      LUT4_D                      : 5
+#      LUT4_L                      : 11
+#      MUXCY                       : 36
+#      MUXF5                       : 48
+#      MUXF6                       : 8
+#      VCC                         : 2
+#      XORCY                       : 32
+# FlipFlops/Latches                : 122
+#      FD                          : 13
+#      FDC                         : 20
+#      FDCE                        : 38
+#      FDE                         : 9
+#      FDP                         : 1
+#      FDR                         : 22
+#      FDS                         : 4
+#      LD                          : 15
+# RAMS                             : 1
+#      RAMB16_S36_S36              : 1
+# Clock Buffers                    : 5
+#      BUFG                        : 1
+#      BUFGP                       : 4
+# IO Buffers                       : 19
+#      IBUF                        : 6
+#      OBUF                        : 13
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-4 
+
+ Number of Slices:                      178  out of    960    18%  
+ Number of Slice Flip Flops:            122  out of   1920     6%  
+ Number of 4 input LUTs:                315  out of   1920    16%  
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of     83    27%  
+ Number of BRAMs:                         1  out of      4    25%  
+ Number of GCLKs:                         5  out of     24    20%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-------------------------------------------------------------------------------+---------------------------------------+-------+
+Clock Signal                                                                   | Clock buffer(FF name)                 | Load  |
+-------------------------------------------------------------------------------+---------------------------------------+-------+
+clkMain                                                                        | BUFGP                                 | 76    |
+clock200hz                                                                     | NONE(display_1)                       | 15    |
+prox_passo                                                                     | BUFGP                                 | 5     |
+ResetMain                                                                      | IBUF+BUFG                             | 4     |
+ender_low                                                                      | BUFGP                                 | 4     |
+ender_high                                                                     | BUFGP                                 | 4     |
+UnidadeControle/current_st_11                                                  | NONE(UnidadeControle/selULA_2)        | 3     |
+UnidadeControle/current_st_0                                                   | NONE(UnidadeControle/prox_passo_feito)| 1     |
+UnidadeControle/cargaPC_or0000(UnidadeControle/cargaPC_or00001:O)              | NONE(*)(UnidadeControle/cargaPC)      | 1     |
+UnidadeControle/cargaNZ_or0000(UnidadeControle/cargaNZ_or00001:O)              | NONE(*)(UnidadeControle/cargaNZ)      | 1     |
+UnidadeControle/cargaRI_or0000(UnidadeControle/cargaRI_or0000:O)               | NONE(*)(UnidadeControle/cargaRI)      | 1     |
+UnidadeControle/cargaRDM_or0000(UnidadeControle/cargaRDM_or000019:O)           | NONE(*)(UnidadeControle/cargaRDM)     | 1     |
+UnidadeControle/cargaREM_or0000(UnidadeControle/cargaREM_or000016:O)           | NONE(*)(UnidadeControle/cargaREM)     | 1     |
+UnidadeControle/incrementaPC_or0000(UnidadeControle/incrementaPC_or000013_f5:O)| NONE(*)(UnidadeControle/incrementaPC) | 1     |
+UnidadeControle/selRDM_or0000(UnidadeControle/selRDM_or00001:O)                | NONE(*)(UnidadeControle/selRDM)       | 1     |
+UnidadeControle/selREM_or0000(UnidadeControle/selREM_or00001:O)                | NONE(*)(UnidadeControle/selREM)       | 1     |
+UnidadeControle/writeMEM_0_or0000(UnidadeControle/writeMEM_0_or00001:O)        | NONE(*)(UnidadeControle/writeMEM_0)   | 1     |
+UnidadeControle/cargaAC_or0000(UnidadeControle/cargaAC_or00001:O)              | NONE(*)(UnidadeControle/cargaAC)      | 1     |
+UnidadeControle/stop_or0000(UnidadeControle/stop_or00001:O)                    | NONE(*)(UnidadeControle/stop)         | 1     |
+-------------------------------------------------------------------------------+---------------------------------------+-------+
+(*) These 11 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------------------------------+---------------------------------------+-------+
+Control Signal                                                                       | Buffer(FF name)                       | Load  |
+-------------------------------------------------------------------------------------+---------------------------------------+-------+
+ResetMain                                                                            | IBUF                                  | 58    |
+UnidadeControle/prox_passo_reset_and0000(UnidadeControle/prox_passo_reset_and00001:O)| NONE(UnidadeControle/prox_passo_reset)| 1     |
+-------------------------------------------------------------------------------------+---------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 8.470ns (Maximum Frequency: 118.064MHz)
+   Minimum input arrival time before clock: 5.087ns
+   Maximum output required time after clock: 4.394ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clkMain'
+  Clock period: 8.470ns (frequency: 118.064MHz)
+  Total number of paths / destination ports: 1207 / 107
+-------------------------------------------------------------------------
+Delay:               8.470ns (Levels of Logic = 12)
+  Source:            Reg_AC/output_signal_0 (FF)
+  Destination:       NZ/output_signal_0 (FF)
+  Source Clock:      clkMain rising
+  Destination Clock: clkMain rising
+
+  Data Path: Reg_AC/output_signal_0 to NZ/output_signal_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            15   0.591   1.052  Reg_AC/output_signal_0 (Reg_AC/output_signal_0)
+     LUT3:I2->O            1   0.704   0.000  UAL/Maddsub_output_signal_addsub0000_lut<0> (UAL/Maddsub_output_signal_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  UAL/Maddsub_output_signal_addsub0000_cy<0> (UAL/Maddsub_output_signal_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  UAL/Maddsub_output_signal_addsub0000_cy<1> (UAL/Maddsub_output_signal_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  UAL/Maddsub_output_signal_addsub0000_cy<2> (UAL/Maddsub_output_signal_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  UAL/Maddsub_output_signal_addsub0000_cy<3> (UAL/Maddsub_output_signal_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  UAL/Maddsub_output_signal_addsub0000_cy<4> (UAL/Maddsub_output_signal_addsub0000_cy<4>)
+     XORCY:CI->O           2   0.804   0.482  UAL/Maddsub_output_signal_addsub0000_xor<5> (UAL/output_signal_addsub0000<5>)
+     LUT3:I2->O            1   0.704   0.000  UAL/Mmux_output_signal_512 (UAL/Mmux_output_signal_512)
+     MUXF5:I0->O           1   0.321   0.000  UAL/Mmux_output_signal_3_f5_5 (UAL/Mmux_output_signal_3_f56)
+     MUXF6:I1->O           2   0.521   0.451  UAL/Mmux_output_signal_2_f6_5 (ULA_output<5>)
+     LUT4:I3->O            1   0.704   0.424  UAL/nz<0>27_SW0 (N10)
+     LUT4:I3->O            1   0.704   0.000  UAL/nz<0>27 (ULA_NZ_output<0>)
+     FDCE:D                    0.308          NZ/output_signal_0
+    ----------------------------------------
+    Total                      8.470ns (6.061ns logic, 2.409ns route)
+                                       (71.6% logic, 28.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clock200hz'
+  Clock period: 8.157ns (frequency: 122.594MHz)
+  Total number of paths / destination ports: 119 / 19
+-------------------------------------------------------------------------
+Delay:               8.157ns (Levels of Logic = 5)
+  Source:            ctrl_FSM_FFd4 (FF)
+  Destination:       display_3 (FF)
+  Source Clock:      clock200hz rising
+  Destination Clock: clock200hz rising
+
+  Data Path: ctrl_FSM_FFd4 to display_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              25   0.591   1.339  ctrl_FSM_FFd4 (ctrl_FSM_FFd4)
+     LUT2:I1->O            1   0.704   0.424  display_mux0017<3>2113_SW0 (N86)
+     LUT4_L:I3->LO         1   0.704   0.104  display_mux0017<3>2113 (display_mux0017<3>2113)
+     LUT4:I3->O            1   0.704   0.424  display_mux0017<3>2115_SW0 (N40)
+     LUT4_D:I3->O          1   0.704   0.424  display_mux0017<3>2115 (N18)
+     LUT4:I3->O            1   0.704   0.420  display_mux0017<3>387 (display_mux0017<3>387)
+     FDS:S                     0.911          display_3
+    ----------------------------------------
+    Total                      8.157ns (5.022ns logic, 3.135ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ender_low'
+  Clock period: 2.846ns (frequency: 351.370MHz)
+  Total number of paths / destination ports: 10 / 4
+-------------------------------------------------------------------------
+Delay:               2.846ns (Levels of Logic = 1)
+  Source:            BRAM_b_low_input_0 (FF)
+  Destination:       BRAM_b_low_input_2 (FF)
+  Source Clock:      ender_low rising
+  Destination Clock: ender_low rising
+
+  Data Path: BRAM_b_low_input_0 to BRAM_b_low_input_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             18   0.591   1.243  BRAM_b_low_input_0 (BRAM_b_low_input_0)
+     LUT3:I0->O            1   0.704   0.000  Mcount_BRAM_b_low_input_xor<2>11 (Result<2>)
+     FD:D                      0.308          BRAM_b_low_input_2
+    ----------------------------------------
+    Total                      2.846ns (1.603ns logic, 1.243ns route)
+                                       (56.3% logic, 43.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ender_high'
+  Clock period: 2.778ns (frequency: 359.971MHz)
+  Total number of paths / destination ports: 10 / 4
+-------------------------------------------------------------------------
+Delay:               2.778ns (Levels of Logic = 1)
+  Source:            BRAM_b_high_input_1 (FF)
+  Destination:       BRAM_b_high_input_1 (FF)
+  Source Clock:      ender_high rising
+  Destination Clock: ender_high rising
+
+  Data Path: BRAM_b_high_input_1 to BRAM_b_high_input_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              14   0.591   1.175  BRAM_b_high_input_1 (BRAM_b_high_input_1)
+     LUT2:I0->O            1   0.704   0.000  Mcount_BRAM_b_high_input_xor<1>11 (Result<1>2)
+     FD:D                      0.308          BRAM_b_high_input_1
+    ----------------------------------------
+    Total                      2.778ns (1.603ns logic, 1.175ns route)
+                                       (57.7% logic, 42.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'UnidadeControle/current_st_11'
+  Clock period: 4.867ns (frequency: 205.465MHz)
+  Total number of paths / destination ports: 4 / 3
+-------------------------------------------------------------------------
+Delay:               4.867ns (Levels of Logic = 3)
+  Source:            UnidadeControle/selULA_1 (LATCH)
+  Destination:       UnidadeControle/selULA_1 (LATCH)
+  Source Clock:      UnidadeControle/current_st_11 falling
+  Destination Clock: UnidadeControle/current_st_11 falling
+
+  Data Path: UnidadeControle/selULA_1 to UnidadeControle/selULA_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              18   0.676   1.072  UnidadeControle/selULA_1 (UnidadeControle/selULA_1)
+     LUT4_L:I3->LO         1   0.704   0.275  UnidadeControle/selULA_mux0007<1>7 (UnidadeControle/selULA_mux0007<1>7)
+     LUT3:I0->O            1   0.704   0.424  UnidadeControle/selULA_mux0007<1>16 (UnidadeControle/selULA_mux0007<1>16)
+     LUT4:I3->O            1   0.704   0.000  UnidadeControle/selULA_mux0007<1>34 (UnidadeControle/selULA_mux0007<1>)
+     LD:D                      0.308          UnidadeControle/selULA_1
+    ----------------------------------------
+    Total                      4.867ns (3.096ns logic, 1.771ns route)
+                                       (63.6% logic, 36.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clkMain'
+  Total number of paths / destination ports: 7 / 4
+-------------------------------------------------------------------------
+Offset:              5.087ns (Levels of Logic = 4)
+  Source:            Start (PAD)
+  Destination:       UnidadeControle/current_st_0 (FF)
+  Destination Clock: clkMain rising
+
+  Data Path: Start to UnidadeControle/current_st_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.218   0.526  Start_IBUF (Start_IBUF)
+     LUT4:I1->O            1   0.704   0.424  UnidadeControle/next_st_mux0004<0>21 (UnidadeControle/next_st_mux0004<0>21)
+     LUT4:I3->O            1   0.704   0.499  UnidadeControle/next_st_mux0004<0>28 (UnidadeControle/next_st_mux0004<0>28)
+     LUT4:I1->O            1   0.704   0.000  UnidadeControle/next_st_mux0004<0>38 (UnidadeControle/next_st<0>)
+     FDC:D                     0.308          UnidadeControle/current_st_0
+    ----------------------------------------
+    Total                      5.087ns (3.638ns logic, 1.449ns route)
+                                       (71.5% logic, 28.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock200hz'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              4.513ns (Levels of Logic = 2)
+  Source:            alt_view (PAD)
+  Destination:       display_2 (FF)
+  Destination Clock: clock200hz rising
+
+  Data Path: alt_view to display_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            19   1.218   1.260  alt_view_IBUF (alt_view_IBUF)
+     LUT4:I0->O            1   0.704   0.420  display_mux0017<4>307 (display_mux0017<4>307)
+     FDS:S                     0.911          display_2
+    ----------------------------------------
+    Total                      4.513ns (2.833ns logic, 1.680ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'prox_passo'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              2.858ns (Levels of Logic = 1)
+  Source:            alt_view (PAD)
+  Destination:       BRAM_b_data_in_high_0 (FF)
+  Destination Clock: prox_passo rising
+
+  Data Path: alt_view to BRAM_b_data_in_high_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            19   1.218   1.085  alt_view_IBUF (alt_view_IBUF)
+     FDE:CE                    0.555          BRAM_b_data_in_high_0
+    ----------------------------------------
+    Total                      2.858ns (1.773ns logic, 1.085ns route)
+                                       (62.0% logic, 38.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'ResetMain'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              2.858ns (Levels of Logic = 1)
+  Source:            alt_view (PAD)
+  Destination:       BRAM_b_data_in_low_0 (FF)
+  Destination Clock: ResetMain rising
+
+  Data Path: alt_view to BRAM_b_data_in_low_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            19   1.218   1.085  alt_view_IBUF (alt_view_IBUF)
+     FDE:CE                    0.555          BRAM_b_data_in_low_0
+    ----------------------------------------
+    Total                      2.858ns (1.773ns logic, 1.085ns route)
+                                       (62.0% logic, 38.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'UnidadeControle/current_st_0'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              2.936ns (Levels of Logic = 2)
+  Source:            passo_a_passo (PAD)
+  Destination:       UnidadeControle/prox_passo_feito (LATCH)
+  Destination Clock: UnidadeControle/current_st_0 falling
+
+  Data Path: passo_a_passo to UnidadeControle/prox_passo_feito
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.218   0.706  passo_a_passo_IBUF (passo_a_passo_IBUF)
+     LUT2:I0->O            1   0.704   0.000  UnidadeControle/prox_passo_feito_mux00011 (UnidadeControle/prox_passo_feito_mux0001)
+     LD:D                      0.308          UnidadeControle/prox_passo_feito
+    ----------------------------------------
+    Total                      2.936ns (2.230ns logic, 0.706ns route)
+                                       (76.0% logic, 24.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clkMain'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.394ns (Levels of Logic = 1)
+  Source:            NZ/output_signal_0 (FF)
+  Destination:       N_led (PAD)
+  Source Clock:      clkMain rising
+
+  Data Path: NZ/output_signal_0 to N_led
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.591   0.531  NZ/output_signal_0 (NZ/output_signal_0)
+     OBUF:I->O                 3.272          N_led_OBUF (N_led)
+    ----------------------------------------
+    Total                      4.394ns (3.863ns logic, 0.531ns route)
+                                       (87.9% logic, 12.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock200hz'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            selDisplay_3 (FF)
+  Destination:       selDisplay<3> (PAD)
+  Source Clock:      clock200hz rising
+
+  Data Path: selDisplay_3 to selDisplay<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.591   0.420  selDisplay_3 (selDisplay_3)
+     OBUF:I->O                 3.272          selDisplay_3_OBUF (selDisplay<3>)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.89 secs
+ 
+--> 
+
+Total memory usage is 360412 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   69 (   0 filtered)
+Number of infos    :   23 (   0 filtered)
+

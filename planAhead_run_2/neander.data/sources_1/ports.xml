@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="selDisplay">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="display">
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Port Id="N_led" Dir="OUT"/>
+		<Port Id="ResetMain" Dir="IN"/>
+		<Port Id="ender_low" Dir="IN"/>
+		<Port Id="Start" Dir="IN"/>
+		<Port Id="passo_a_passo" Dir="IN"/>
+		<Port Id="prox_passo" Dir="IN"/>
+		<Port Id="clkMain" Dir="IN"/>
+		<Port Id="ender_high" Dir="IN"/>
+		<Port Id="alt_view" Dir="IN"/>
+		<Port Id="Z_led" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

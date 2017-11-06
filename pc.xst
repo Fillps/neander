@@ -1,0 +1,5 @@
+set -tmpdir "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/xst/projnav.tmp"
+set -xsthdpdir "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/xst"
+elaborate
+-ifn pc.prj
+-ifmt mixed

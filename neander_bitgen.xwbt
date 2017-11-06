@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neander.ncd
+OUTFILE=D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neander.bit
+FAMILY=Spartan3E
+PART=xc3s100e-4cp132
+WORKINGDIR=D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander
+LICENSE=WebPack
+USER_INFO=211391903_0_0_730

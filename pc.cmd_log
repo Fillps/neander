@@ -1,0 +1,2 @@
+vhdtdtfi -prj neander -o "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhi" -module pc -template D:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work pc.vhd 
+vhdtdtfi -prj neander -o "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhi" -module pc -template D:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work pc.vhd 
