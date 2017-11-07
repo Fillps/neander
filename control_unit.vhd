@@ -243,6 +243,11 @@ begin
 			stop <= '1';
 			next_st <= IDLE_ST;
 		when IDLE_ST =>
+			cargaRI <= '0';
+			cargaPC <= '0';
+			cargaAC <= '0';
+			cargaRDM <= '0';
+			incrementaPC <= '0';
 			if ((stop = '0' or continue = '1') and start = '1') then
 				next_st <= FIND_INSTR_1_ST;
 			else
