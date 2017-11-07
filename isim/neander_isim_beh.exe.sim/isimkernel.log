@@ -2,9 +2,29 @@ Command line:
    neander_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  65126
+     -socket  51916
 
-Mon Nov 06 15:03:56 2017
+Tue Nov 07 01:26:12 2017
 
 
- Elaboration Time: 0.03125 sec
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 885.33 Meg
+
+ Total Signals          : 353
+ Total Nets             : 2689
+ Total Signal Drivers   : 119
+ Total Blocks           : 30
+ Total Primitive Blocks : 22
+ Total Processes        : 79
+ Total Traceable Variables  : 226
+ Total Scalar Nets and Variables : 4025
+Total Line Count : 553
+Total Line Count : 553
+
+ Total Simulation Time: 0.75 sec
+
+ Current Memory Usage: 413.471 Meg
+
+Tue Nov 07 01:33:15 2017
+

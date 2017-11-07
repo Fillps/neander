@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> Reading design: neander.prj
@@ -183,7 +183,7 @@ Entity <decod> analyzed. Unit <decod> generated.
 Analyzing Entity <control_unit> in library <work> (Architecture <behavioral>).
 WARNING:Xst:819 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" line 89: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <prox_passo_reset>
-WARNING:Xst:819 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" line 268: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" line 269: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <prox_passo_reset>, <prox_passo_feito>
 Entity <control_unit> analyzed. Unit <control_unit> generated.
 
@@ -753,9 +753,9 @@ Offset:              5.087ns (Levels of Logic = 4)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             2   1.218   0.526  Start_IBUF (Start_IBUF)
-     LUT4:I1->O            1   0.704   0.424  UnidadeControle/next_st_mux0004<0>21 (UnidadeControle/next_st_mux0004<0>21)
-     LUT4:I3->O            1   0.704   0.499  UnidadeControle/next_st_mux0004<0>28 (UnidadeControle/next_st_mux0004<0>28)
-     LUT4:I1->O            1   0.704   0.000  UnidadeControle/next_st_mux0004<0>38 (UnidadeControle/next_st<0>)
+     LUT4:I1->O            1   0.704   0.424  UnidadeControle/next_st_mux0004<0>20 (UnidadeControle/next_st_mux0004<0>20)
+     LUT4:I3->O            1   0.704   0.499  UnidadeControle/next_st_mux0004<0>27 (UnidadeControle/next_st_mux0004<0>27)
+     LUT4:I1->O            1   0.704   0.000  UnidadeControle/next_st_mux0004<0>37 (UnidadeControle/next_st<0>)
      FDC:D                     0.308          UnidadeControle/current_st_0
     ----------------------------------------
     Total                      5.087ns (3.638ns logic, 1.449ns route)
@@ -881,11 +881,11 @@ Offset:              4.283ns (Levels of Logic = 1)
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.89 secs
+Total CPU time to Xst completion: 7.01 secs
  
 --> 
 
-Total memory usage is 360412 kilobytes
+Total memory usage is 360484 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   69 (   0 filtered)

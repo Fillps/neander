@@ -1,17 +1,17 @@
 PROMGEN: Xilinx Prom Generator P.20131013
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-promgen -w -p mcs -c FF -o "D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander//neanderPROM" -s 256 -u 00000000 "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit" -bpi_dc parallel 
+promgen -w -p mcs -c FF -o "D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander//neanderPROM" -s 512 -u 00000000 "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit" -bpi_dc parallel 
 
-PROM D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neanderPROM.prm map: Mon Nov 06 19:15:53 2017
+PROM D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neanderPROM.prm map: Tue Nov 07 01:34:29 2017
 
 Calculating PROM checksum with fill value ff
 
 Format        Mcs86 (32-bit)
-Size          256K
+Size          512K
 PROM start    0000:0000
-PROM end      0003:ffff
-PROM checksum 02e7541f
+PROM end      0007:ffff
+PROM checksum 06e3479d
 
         Addr1        Addr2                     Date File(s)
-    0000:0000    0001:1bdb     Nov 06 18:36:01 2017 D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit
+    0000:0000    0001:1bdb     Nov 07 01:33:53 2017 D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit

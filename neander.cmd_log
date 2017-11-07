@@ -204,3 +204,64 @@ map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander
 par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
 bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+xst -intstyle ise -ifn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.xst" -ofn "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc neander.ucf -p xc3s100e-cp132-4 "neander.ngc" neander.ngd  
+map -intstyle ise -p xc3s100e-cp132-4 -cm area -ir off -pr off -c 100 -o neander_map.ncd neander.ngd neander.pcf 
+par -w -intstyle ise -ol high -t 1 neander_map.ncd neander.ncd neander.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml neander.twx neander.ncd -o neander.twr neander.pcf -ucf neander.ucf 
+bitgen -intstyle ise -f neander.ut neander.ncd 
+netgen -intstyle ise -ar Structure -tm neander -w -dir netgen/synthesis -ofmt vhdl -sim neander.ngc neander_synthesis.vhd 

@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Mon Nov 06 19:32:40 2017">
+  <application stringID="par" timeStamp="Tue Nov 07 01:33:41 2017">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -59,17 +59,17 @@
     </task>
     <task stringID="PAR_DEVICE_UTILIZATION">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="192"></item>
+        <item AVAILABLE="960" dataType="int" stringID="PAR_SLICES" value="193"></item>
       </section>
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="4 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="4 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="5 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="5 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="0.000000"/>
-        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="4 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="4 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="5 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="5 secs "/>
       </section>
     </task>
     <task stringID="PAR_par">
@@ -89,8 +89,8 @@
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y11"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="47.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.028000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.067000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.032000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.071000"/>
           </row>
           <row stringID="row" value="2">
             <item label="Clock Net" stringID="CLOCK_NET" value="ender_low_BUFGP"/>
@@ -99,7 +99,7 @@
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="3.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.002000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.058000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.072000"/>
           </row>
           <row stringID="row" value="3">
             <item label="Clock Net" stringID="CLOCK_NET" value="prox_passo_BUFGP"/>
@@ -107,7 +107,7 @@
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X1Y10"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="3.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.011000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.008000"/>
             <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.053000"/>
           </row>
           <row stringID="row" value="4">
@@ -116,8 +116,8 @@
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X2Y10"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="2.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.016000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.070000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.042000"/>
           </row>
           <row stringID="row" value="5">
             <item label="Clock Net" stringID="CLOCK_NET" value="ender_high_BUFGP"/>
@@ -125,8 +125,8 @@
             <item label="Resource" stringID="RESOURCE" value="BUFGMUX_X1Y11"/>
             <item label="Locked" stringID="LOCKED" value="No"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="3.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.004000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.045000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.051000"/>
           </row>
           <row stringID="row" value="6">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/current_st&lt;0>"/>
@@ -134,7 +134,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="12.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="2.208000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.793000"/>
           </row>
           <row stringID="row" value="7">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/incrementaPC_or0000"/>
@@ -142,15 +142,15 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.389000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.589000"/>
           </row>
           <row stringID="row" value="8">
             <item label="Clock Net" stringID="CLOCK_NET" value="clock200hz"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="14.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.050000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.558000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.358000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="2.072000"/>
           </row>
           <row stringID="row" value="9">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaRDM_or0000"/>
@@ -158,15 +158,15 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.125000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.276000"/>
           </row>
           <row stringID="row" value="10">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/current_st&lt;11>"/>
             <item label="Routed" stringID="ROUTED" value="ROUTED"/>
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="8.000000"/>
-            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.403000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.693000"/>
+            <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.167000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.987000"/>
           </row>
           <row stringID="row" value="11">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaREM_or0000"/>
@@ -174,7 +174,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.112000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.654000"/>
           </row>
           <row stringID="row" value="12">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/selREM_or0000"/>
@@ -182,7 +182,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.571000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.142000"/>
           </row>
           <row stringID="row" value="13">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaRI_or0000"/>
@@ -190,7 +190,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.348000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.125000"/>
           </row>
           <row stringID="row" value="14">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaPC_or0000"/>
@@ -198,7 +198,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.184000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.587000"/>
           </row>
           <row stringID="row" value="15">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/stop_or0000"/>
@@ -206,7 +206,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.346000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.386000"/>
           </row>
           <row stringID="row" value="16">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaAC_or0000"/>
@@ -214,7 +214,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.919000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.630000"/>
           </row>
           <row stringID="row" value="17">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/selRDM_or0000"/>
@@ -222,7 +222,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.083000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.125000"/>
           </row>
           <row stringID="row" value="18">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/cargaNZ_or0000"/>
@@ -230,7 +230,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.151000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.854000"/>
           </row>
           <row stringID="row" value="19">
             <item label="Clock Net" stringID="CLOCK_NET" value="UnidadeControle/writeMEM_0_or0000"/>
@@ -238,7 +238,7 @@
             <item label="Resource" stringID="RESOURCE" value="Local"/>
             <item dataType="float" label="Fanout" stringID="FANOUT" value="1.000000"/>
             <item dataType="float" label="Net Skew(ns)" stringID="NET_SKEW" value="0.000000"/>
-            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="1.125000"/>
+            <item dataType="float" label="Max Delay(ns)" stringID="MAX_DELAY" value="0.853000"/>
           </row>
         </table>
       </section>

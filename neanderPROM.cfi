@@ -2,10 +2,10 @@
 # Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 SOFTWARE_VERSION P.20131013
-DATE            11/06/2017 - 19:15
+DATE            11/07/2017 - 01:34
 SOURCE          D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neanderPROM.mcs
-DEVICE          256K
+DEVICE          512K
 DATA_WIDTH      8
 FILL_DATA       0xFF
-SIGNATURE       0x02E7541F
+SIGNATURE       0x06E3479D
 START_ADDRESS   0x00000000 END_ADDRESS 0x00011BDB DIRECTION_UP   "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit" 3s100ecp132

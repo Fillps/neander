@@ -15,18 +15,13 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="24" />
+   <wave_markers>
+      <marker time="-99999000" label="" />
+   </wave_markers>
    <wvobject fp_name="/neander/clkmain" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clkmain</obj_property>
       <obj_property name="ObjectShortName">clkmain</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/resetmain" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">resetmain</obj_property>
-      <obj_property name="ObjectShortName">resetmain</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/start" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">start</obj_property>
-      <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
    <wvobject fp_name="/neander/cargaac" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">cargaac</obj_property>
@@ -64,14 +59,13 @@
       <obj_property name="ElementShortName">selmux2</obj_property>
       <obj_property name="ObjectShortName">selmux2</obj_property>
    </wvobject>
-   <wvobject fp_name="/neander/bram_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bram_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_output[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject fp_name="/neander/writemem" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">writemem[0:0]</obj_property>
+      <obj_property name="ObjectShortName">writemem[0:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/neander/pc_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">pc_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_output[7:0]</obj_property>
+   <wvobject fp_name="/neander/ula_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ula_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ula_output[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/neander/ac_output" type="array" db_ref_id="1">
@@ -84,19 +78,9 @@
       <obj_property name="ObjectShortName">rdm_output[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/neander/rem_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">rem_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">rem_output[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/ri_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ri_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ri_output[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/ula_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ula_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ula_output[7:0]</obj_property>
+   <wvobject fp_name="/neander/pc_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_output[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/neander/mux2_output" type="array" db_ref_id="1">
@@ -109,9 +93,9 @@
       <obj_property name="ObjectShortName">mux1_output[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/neander/nz_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">nz_output[1:0]</obj_property>
-      <obj_property name="ObjectShortName">nz_output[1:0]</obj_property>
+   <wvobject fp_name="/neander/ri_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ri_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ri_output[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/neander/ula_nz_output" type="array" db_ref_id="1">
@@ -119,9 +103,9 @@
       <obj_property name="ObjectShortName">ula_nz_output[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/neander/writemem" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">writemem[0:0]</obj_property>
-      <obj_property name="ObjectShortName">writemem[0:0]</obj_property>
+   <wvobject fp_name="/neander/nz_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">nz_output[1:0]</obj_property>
+      <obj_property name="ObjectShortName">nz_output[1:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/neander/selula" type="array" db_ref_id="1">
@@ -129,29 +113,19 @@
       <obj_property name="ObjectShortName">selula[2:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/neander/bram_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bram_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bram_output[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/neander/rem_output" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rem_output[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rem_output[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/neander/decod_output" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">decod_output[13:0]</obj_property>
       <obj_property name="ObjectShortName">decod_output[13:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/bram_b_output" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bram_b_output[7:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_b_output[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/bram_b_input" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bram_b_input[7:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_b_input[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/bram_b_low_input" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bram_b_low_input[3:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_b_low_input[3:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/neander/bram_b_high_input" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">bram_b_high_input[3:0]</obj_property>
-      <obj_property name="ObjectShortName">bram_b_high_input[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
 </wave_config>

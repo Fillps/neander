@@ -9,7 +9,7 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Mon Nov 06 19:32:36 2017
+Mapped Date    : Tue Nov 07 01:33:37 2017
 
 Mapping design into LUTs...
 Running directed packing...
@@ -216,9 +216,9 @@ Logic Utilization:
     Number used as Latches:              15
   Number of 4 input LUTs:               303 out of   1,920   15%
 Logic Distribution:
-  Number of occupied Slices:            192 out of     960   20%
-    Number of Slices containing only related logic:     192 out of     192 100%
-    Number of Slices containing unrelated logic:          0 out of     192   0%
+  Number of occupied Slices:            193 out of     960   20%
+    Number of Slices containing only related logic:     193 out of     193 100%
+    Number of Slices containing unrelated logic:          0 out of     193   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
   Total Number of 4 input LUTs:         321 out of   1,920   16%
     Number used as logic:               303

@@ -128,10 +128,11 @@ begin
 			next_st <= RI_2_ST;
 		when RI_2_ST =>
 			cargaRI <= '0';
-			
+			--0-NOP, 1-STA, 2-LDA, 3-ADD, 4-OR, 5-AND, 6-NOT, 7-SUB, 
+			--8-JMP, 9-JN, 10-JZ, 11-SHR, 12-SHL, 13-HLT
 			if (decod(0) = '1') then --NOP
 				next_st <= FIND_INSTR_1_ST;
-			elsif ((decod(9) = '1' and nz(0) = '0') or (decod(10) = '1' and nz(1) = '0')) then --JZ and N = 0, JN and Z = 0
+			elsif ((decod(10) = '1' and nz(0) = '0') or (decod(9) = '1' and nz(1) = '0')) then --JZ and N = 0, JN and Z = 0
 				next_st <= FALSE_JMP_ST;
 			elsif (decod(13) = '1') then --HLT
 				next_st <= HLT_ST;
@@ -242,7 +243,7 @@ begin
 			stop <= '1';
 			next_st <= IDLE_ST;
 		when IDLE_ST =>
-			if ((stop = '0' or continue = '0') and start = '1') then
+			if ((stop = '0' or continue = '1') and start = '1') then
 				next_st <= FIND_INSTR_1_ST;
 			else
 				next_st <= IDLE_ST;

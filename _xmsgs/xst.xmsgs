@@ -36,7 +36,7 @@
 <arg fmt="%s" index="3">&lt;prox_passo_reset&gt;</arg>
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="old" >&quot;<arg fmt="%s" index="1">D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd</arg>&quot; line <arg fmt="%d" index="2">268</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<msg type="warning" file="Xst" num="819" delta="old" >&quot;<arg fmt="%s" index="1">D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd</arg>&quot; line <arg fmt="%d" index="2">269</arg>: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
 <arg fmt="%s" index="3">&lt;prox_passo_reset&gt;, &lt;prox_passo_feito&gt;</arg>
 </msg>
 
