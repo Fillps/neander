@@ -80,6 +80,7 @@ signal selULA 	      : std_logic_vector(2 downto 0);
 signal BRAM_output    : std_logic_vector(7 downto 0);
 signal REM_output     : std_logic_vector(7 downto 0);
 signal Decod_output   : std_logic_vector(13 downto 0);
+signal run : std_logic;
 
 signal BRAM_b_output     : std_logic_vector (7 downto 0);
 signal BRAM_b_input      : std_logic_vector (7 downto 0);
@@ -158,7 +159,7 @@ COMPONENT control_unit
 		decod : IN std_logic_vector(13 downto 0);  
 		prox_passo : IN std_logic;  
 		passo_a_passo : IN std_logic;
-		continue : IN std_logic;     
+		continue : IN std_logic;   		
 		cargaNZ : OUT std_logic;
 		selULA : OUT std_logic_vector(2 downto 0);
 		cargaAC : OUT std_logic;
@@ -299,7 +300,7 @@ begin
 		decod => Decod_output,
 		prox_passo => prox_passo,
 		passo_a_passo => passo_a_passo,
-		continue => continue,
+		continue => run,
 		cargaNZ => cargaNZ,
 		selULA => selULA,
 		cargaAC => CargaAC,
@@ -340,11 +341,11 @@ begin
 				end if;
 			end if;
 	end process divisor;
-
-  AC_low <= AC_output(3 downto 0);
-  AC_high <= AC_output(7 downto 4);
-  PC_low <= PC_output(3 downto 0);
-  PC_high <= PC_output(7 downto 4);
+		
+	AC_low <= AC_output(3 downto 0);
+	AC_high <= AC_output(7 downto 4);
+	PC_low <= PC_output(3 downto 0);
+	PC_high <= PC_output(7 downto 4);
   
 	process(clock200hz, alt_view)
 	variable ctrl: bit_vector(1 downto 0);
@@ -429,4 +430,6 @@ begin
 	Z_led <= NZ_output(1);
 	
 	b_writeMEM(0) <= writeB;
+	
+	run <= ender_low;
 end Behavioral;

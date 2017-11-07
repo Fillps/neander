@@ -71,16 +71,21 @@ architecture Behavioral of control_unit is
 
 type state is (FIND_INSTR_1_ST, FIND_INSTR_2_ST, FIND_INSTR_3_ST, READ_INSTR_ST, RI_1_ST, RI_2_ST, FIND_DATA_ST, 
 					READ_MEMORY_1_ST, READ_MEMORY_2_ST, FIND_ADDRESS_1_ST, FIND_ADDRESS_2_ST, ULA_1_ST, 
-					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, WAIT_STEP_ST);
-signal current_st, next_st : state;
+					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, WAIT_STEP_ST, RUN_ST);
+signal current_st : state := IDLE_ST;
+signal next_st : state := IDLE_ST;
 signal stop : std_logic := '0';
 signal prox_passo_reset, prox_passo_feito : std_logic;
 begin
 
-process (clk, rst, current_st, next_st)
+process (clk, rst, prox_passo, continue, current_st, next_st)
 begin
  if (rst = '1') then
    current_st <= RST_ST;
+ elsif (continue = '1') then
+	current_st <= RUN_ST;
+ elsif (prox_passo = '1') then
+	current_st <= WAIT_STEP_ST;
  elsif (rising_edge(clk)) then
    current_st <= next_st;
  end if;
@@ -90,7 +95,6 @@ process(nz, decod, start, next_st, current_st, stop, passo_a_passo, prox_passo, 
 begin
 	case current_st is 
 		when FIND_INSTR_1_ST =>
-			prox_passo_feito <= '1';
 			cargaNZ <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
@@ -99,11 +103,10 @@ begin
 			writeMEM <= "0";
 			incrementaPC <= '0';
 			selRDM <= '0';
-			if (prox_passo_reset = '1' or passo_a_passo = '0') then
-				prox_passo_feito <= '0';
-				next_st <= FIND_INSTR_2_ST;
+			if (passo_a_passo = '1') then
+				next_st <= WAIT_STEP_ST;
 			else
-				next_st <= FIND_INSTR_1_ST;
+				next_st <= FIND_INSTR_2_ST;
 			end if;
 		when FIND_INSTR_2_ST =>
 			
@@ -240,19 +243,9 @@ begin
 			cargaAC <= '0';
 			incrementaPC <= '0';
 			
-			stop <= '1';
 			next_st <= IDLE_ST;
 		when IDLE_ST =>
-			cargaRI <= '0';
-			cargaPC <= '0';
-			cargaAC <= '0';
-			cargaRDM <= '0';
-			incrementaPC <= '0';
-			if ((stop = '0' or continue = '1') and start = '1') then
-				next_st <= FIND_INSTR_1_ST;
-			else
-				next_st <= IDLE_ST;
-			end if;
+			next_st <= IDLE_ST;
 		when RST_ST =>
 			cargaNZ <= '0';
 			cargaRI <= '0';
@@ -262,22 +255,23 @@ begin
 			cargaPC <= '0';
 			incrementaPC <= '0';
 			writeMEM <= "0";
-			stop <= '0';
-			next_st <= IDLE_ST;
-		when WAIT_STEP_ST =>
 			
+			next_st <= IDLE_ST;
+		when RUN_ST =>
+			if (continue = '1') then
+				next_st <= RUN_ST;
+			else
+				next_st <= FIND_INSTR_1_ST;
+			end if;
+		when WAIT_STEP_ST =>
+			if (prox_passo = '1') then
+				next_st <= WAIT_STEP_ST;
+			else
+				next_st <= FIND_INSTR_2_ST;
+			end if;
 		when others =>
 			next_st <= IDLE_ST;
 	end case;
 end process;
 
-process(prox_passo)
-begin
-	if (prox_passo_reset = '1' and prox_passo_feito = '0') then
-		prox_passo_reset <= '0';
-	elsif (rising_edge(prox_passo)) then
-		prox_passo_reset <= '1';
-	end if;
-end process;
 end Behavioral;
-
