@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            11/07/2017 - 18:23
+SOURCE          D:\Documents\Google Drive\Eng Comp\UFGRS\INF\sistemas digitais\neander\neander.mcs
+DEVICE          512K
+DATA_WIDTH      8
+FILL_DATA       0xFF
+SIGNATURE       0x06E34A9C
+START_ADDRESS   0x00000000 END_ADDRESS 0x00011BDB DIRECTION_UP   "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.bit" 3s100ecp132

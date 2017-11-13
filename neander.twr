@@ -40,68 +40,52 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
-Setup/Hold to clock ResetMain
-------------+------------+------------+------------------+--------+
-            |Max Setup to|Max Hold to |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-alt_view    |    1.065(R)|    1.665(R)|ResetMain_IBUF    |   0.000|
-------------+------------+------------+------------------+--------+
-
 Setup/Hold to clock clkMain
 -------------+------------+------------+------------------+--------+
              |Max Setup to|Max Hold to |                  | Clock  |
 Source       | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 -------------+------------+------------+------------------+--------+
-Start        |    4.222(R)|   -1.048(R)|clkMain_BUFGP     |   0.000|
-continue     |    3.225(R)|   -0.134(R)|clkMain_BUFGP     |   0.000|
-passo_a_passo|    2.295(R)|    0.437(R)|clkMain_BUFGP     |   0.000|
-writeB       |    2.214(R)|   -0.426(R)|clkMain_BUFGP     |   0.000|
+passo_a_passo|    0.727(R)|    0.596(R)|clkMain_BUFGP     |   0.000|
 -------------+------------+------------+------------------+--------+
-
-Setup/Hold to clock prox_passo
-------------+------------+------------+------------------+--------+
-            |Max Setup to|Max Hold to |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-alt_view    |    2.334(R)|   -0.208(R)|prox_passo_BUFGP  |   0.000|
-------------+------------+------------+------------------+--------+
 
 Clock clkMain to Pad
 ------------+------------+------------------+--------+
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-N_led       |    8.722(R)|clkMain_BUFGP     |   0.000|
-Z_led       |    8.566(R)|clkMain_BUFGP     |   0.000|
+N_led       |    9.312(R)|clkMain_BUFGP     |   0.000|
+Z_led       |    8.067(R)|clkMain_BUFGP     |   0.000|
 ------------+------------+------------------+--------+
 
-Clock to Setup on destination clock ResetMain
+Clock to Setup on destination clock alt_view
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clkMain        |    5.319|         |         |         |
+alt_view       |   -2.429|   -2.429|         |         |
+clkMain        |    7.589|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clkMain
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-ResetMain      |    4.756|         |         |         |
-clkMain        |    7.129|         |         |         |
-ender_high     |    4.297|         |         |         |
-ender_low      |    3.565|         |         |         |
-prox_passo     |    4.213|         |         |         |
----------------+---------+---------+---------+---------+
+-------------------+---------+---------+---------+---------+
+                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------+---------+---------+---------+---------+
+alt_view           |    7.689|    7.388|         |         |
+clkMain            |    7.181|         |         |         |
+ender_high         |    4.098|         |         |         |
+ender_low          |    3.962|         |         |         |
+rst_or_bram_in_low |    6.983|         |         |         |
+run_or_bram_in_high|    7.689|    4.160|         |         |
+writeB             |    7.689|    3.681|         |         |
+-------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ender_high
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-ender_high     |    2.269|         |         |         |
+ender_high     |    2.374|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ender_low
@@ -109,19 +93,38 @@ Clock to Setup on destination clock ender_low
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-ender_low      |    2.488|         |         |         |
+ender_low      |    2.407|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock prox_passo
+Clock to Setup on destination clock rst_or_bram_in_low
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clkMain        |    6.127|         |         |         |
+alt_view       |   -0.893|   -0.893|         |         |
+clkMain        |    5.415|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock run_or_bram_in_high
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+alt_view       |   -2.106|   -2.106|         |         |
+clkMain        |    7.589|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock writeB
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+alt_view       |   -0.985|   -0.985|         |         |
+clkMain        |    7.589|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Nov 07 01:33:49 2017 
+Analysis completed Tue Nov 07 18:22:04 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:

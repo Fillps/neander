@@ -1,18 +1,15 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Nov 07 01:33:38 2017
+// Written by: Map P.20131013 on Tue Nov 07 18:21:54 2017
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "run_or_bram_in_high" LOCATE = SITE "C11" LEVEL 1;
 COMP "N_led" LOCATE = SITE "M11" LEVEL 1;
 COMP "clkMain" LOCATE = SITE "B8" LEVEL 1;
 COMP "ender_low" LOCATE = SITE "M4" LEVEL 1;
 COMP "Z_led" LOCATE = SITE "M5" LEVEL 1;
-COMP "Start" LOCATE = SITE "N3" LEVEL 1;
-COMP "prox_passo" LOCATE = SITE "C11" LEVEL 1;
-PIN prox_passo_pin<0> = BEL "prox_passo" PINNAME PAD;
-PIN "prox_passo_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 COMP "ender_high" LOCATE = SITE "A7" LEVEL 1;
-COMP "alt_view" LOCATE = SITE "E2" LEVEL 1;
+COMP "alt_view" LOCATE = SITE "N3" LEVEL 1;
 COMP "display<0>" LOCATE = SITE "L14" LEVEL 1;
 COMP "display<1>" LOCATE = SITE "H12" LEVEL 1;
 COMP "display<2>" LOCATE = SITE "N14" LEVEL 1;
@@ -20,12 +17,9 @@ COMP "display<3>" LOCATE = SITE "N11" LEVEL 1;
 COMP "display<4>" LOCATE = SITE "P12" LEVEL 1;
 COMP "display<5>" LOCATE = SITE "L13" LEVEL 1;
 COMP "display<6>" LOCATE = SITE "M12" LEVEL 1;
-COMP "passo_a_passo" LOCATE = SITE "F3" LEVEL 1;
-COMP "continue" LOCATE = SITE "G3" LEVEL 1;
+COMP "passo_a_passo" LOCATE = SITE "E2" LEVEL 1;
+COMP "rst_or_bram_in_low" LOCATE = SITE "G12" LEVEL 1;
 COMP "writeB" LOCATE = SITE "P11" LEVEL 1;
-COMP "ResetMain" LOCATE = SITE "G12" LEVEL 1;
-PIN ResetMain_pin<0> = BEL "ResetMain" PINNAME PAD;
-PIN "ResetMain_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
 COMP "selDisplay<0>" LOCATE = SITE "F12" LEVEL 1;
 COMP "selDisplay<1>" LOCATE = SITE "J12" LEVEL 1;
 COMP "selDisplay<2>" LOCATE = SITE "M13" LEVEL 1;
@@ -34,8 +28,6 @@ NET "ender_high_BUFGP/IBUFG" BEL "ender_high_BUFGP/BUFG.GCLKMUX"
         USELOCALCONNECT;
 NET "clkMain_BUFGP/IBUFG" BEL "clkMain_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
 NET "ender_low_BUFGP/IBUFG" BEL "ender_low_BUFGP/BUFG.GCLKMUX"
-        USELOCALCONNECT;
-NET "prox_passo_BUFGP/IBUFG" BEL "prox_passo_BUFGP/BUFG.GCLKMUX"
         USELOCALCONNECT;
 SCHEMATIC END;
 

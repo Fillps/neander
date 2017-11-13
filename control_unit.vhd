@@ -34,7 +34,6 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 entity control_unit is
 	port(
 	--ENTRADAS
-		start : in std_logic; --indica se pode iniciar
 		clk, rst : in std_logic;
 		--0-N, 1-Z
 		NZ: in std_logic_vector (1 downto 0);
@@ -43,8 +42,8 @@ entity control_unit is
 		--8-JMP, 9-JN, 10-JZ, 11-SHR, 12-SHL, 13-HLT
 		decod: in std_logic_vector (13 downto 0);
 		
-		prox_passo, passo_a_passo : in std_logic;
-		continue: in std_logic;
+		passo_a_passo : in std_logic;
+		run: in std_logic;
 	--SAIDAS
 		--REG_NZ
 		cargaNZ : out std_logic;
@@ -71,30 +70,34 @@ architecture Behavioral of control_unit is
 
 type state is (FIND_INSTR_1_ST, FIND_INSTR_2_ST, FIND_INSTR_3_ST, READ_INSTR_ST, RI_1_ST, RI_2_ST, FIND_DATA_ST, 
 					READ_MEMORY_1_ST, READ_MEMORY_2_ST, FIND_ADDRESS_1_ST, FIND_ADDRESS_2_ST, ULA_1_ST, 
-					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, WAIT_STEP_ST, RUN_ST);
+					ULA_2_ST, STA_1_ST, STA_2_ST, JMP_ST, FALSE_JMP_ST, HLT_ST, IDLE_ST, RST_ST, RUN_ST);
 signal current_st : state := IDLE_ST;
 signal next_st : state := IDLE_ST;
 signal stop : std_logic := '0';
 signal prox_passo_reset, prox_passo_feito : std_logic;
 begin
 
-process (clk, rst, prox_passo, continue, current_st, next_st)
+process (clk, rst, run, current_st, next_st)
 begin
  if (rst = '1') then
    current_st <= RST_ST;
- elsif (continue = '1') then
+ elsif (run = '1') then
 	current_st <= RUN_ST;
- elsif (prox_passo = '1') then
-	current_st <= WAIT_STEP_ST;
  elsif (rising_edge(clk)) then
    current_st <= next_st;
  end if;
  end process;
 
-process(nz, decod, start, next_st, current_st, stop, passo_a_passo, prox_passo, continue)
+process(nz, decod, next_st, current_st, stop, passo_a_passo, run)
 begin
 	case current_st is 
 		when FIND_INSTR_1_ST =>
+			if (passo_a_passo = '0') then
+				next_st <= FIND_INSTR_2_ST;
+			else
+				next_st <= IDLE_ST;
+			end if;
+		when FIND_INSTR_2_ST =>
 			cargaNZ <= '0';
 			cargaAC <= '0';
 			cargaPC <= '0';
@@ -103,12 +106,6 @@ begin
 			writeMEM <= "0";
 			incrementaPC <= '0';
 			selRDM <= '0';
-			if (passo_a_passo = '1') then
-				next_st <= WAIT_STEP_ST;
-			else
-				next_st <= FIND_INSTR_2_ST;
-			end if;
-		when FIND_INSTR_2_ST =>
 			
 			selREM <= '0'; -- REM <= PC
 			cargaREM <= '1';
@@ -258,14 +255,8 @@ begin
 			
 			next_st <= IDLE_ST;
 		when RUN_ST =>
-			if (continue = '1') then
+			if (run = '1') then
 				next_st <= RUN_ST;
-			else
-				next_st <= FIND_INSTR_1_ST;
-			end if;
-		when WAIT_STEP_ST =>
-			if (prox_passo = '1') then
-				next_st <= WAIT_STEP_ST;
 			else
 				next_st <= FIND_INSTR_2_ST;
 			end if;

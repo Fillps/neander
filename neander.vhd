@@ -34,18 +34,15 @@ USE IEEE.STD_LOGIC_ARITH.ALL;
 entity neander is
 	Port ( 
 		clkMain : in std_logic; --clk
-		ResetMain : in std_logic; -- botao
-		Start : in std_logic; -- chave
+		rst_or_bram_in_low : in std_logic; -- botao
 		alt_view : in std_logic; -- chave -- alterna em visualizar a memoria ou o AC + PC -- 1 = memoria; 0 = AC + PC
-		
-		continue : in std_logic; -- chave -- para continuar depois do hlt
 		
 		writeB : in std_logic; -- chave
 		ender_low : in std_logic; -- botao -- conta em HEXA no display 2, para navegar a mem
 		ender_high : in std_logic; -- botao -- conta em HEXA no display 1, para navegar a mem
 		
 		passo_a_passo : in std_logic; -- chave: 0=passo a passo desligado, 1 = ligado
-		prox_passo : in std_logic; -- botao para o proximo passo
+		run_or_bram_in_high : in std_logic; -- botao para o proximo passo
 		
 		selDisplay : out std_logic_vector (3 downto 0); -- seleciona o display
 		display : out std_logic_vector (6 downto 0); -- display 7 seg
@@ -55,6 +52,9 @@ entity neander is
 end neander;
 
 architecture Behavioral of neander is
+
+signal ResetMain : std_logic;
+signal prox_passo : std_logic;
 
 signal CargaAC      : std_logic;
 signal CargaRDM     : std_logic;
@@ -90,9 +90,6 @@ signal BRAM_b_data_in : std_logic_vector (7 downto 0);
 signal BRAM_b_data_in_low, BRAM_b_data_in_high: std_logic_vector (3 downto 0);
 signal b_in_low, b_in_high : std_logic;
 signal b_writeMEM : std_logic_vector(0 downto 0) := "0";
-
-signal AC_low, AC_high, PC_low, PC_high : std_logic_vector (3 downto 0);
-
 
 signal clock200hz : std_logic;
 COMPONENT reg8
@@ -152,14 +149,12 @@ COMPONENT decod
 	
 COMPONENT control_unit
 	PORT(
-		start : IN std_logic;
 		clk : IN std_logic;
 		rst : IN std_logic;
 		NZ : IN std_logic_vector(1 downto 0);
 		decod : IN std_logic_vector(13 downto 0);  
-		prox_passo : IN std_logic;  
 		passo_a_passo : IN std_logic;
-		continue : IN std_logic;   		
+		run : IN std_logic;   		
 		cargaNZ : OUT std_logic;
 		selULA : OUT std_logic_vector(2 downto 0);
 		cargaAC : OUT std_logic;
@@ -293,14 +288,12 @@ begin
 	);
 	UnidadeControle: control_unit 
 		PORT MAP(
-		start => Start,
 		clk => clkMain,
 		rst => ResetMain,
 		NZ => NZ_output,
 		decod => Decod_output,
-		prox_passo => prox_passo,
 		passo_a_passo => passo_a_passo,
-		continue => run,
+		run => run,
 		cargaNZ => cargaNZ,
 		selULA => selULA,
 		cargaAC => CargaAC,
@@ -341,11 +334,8 @@ begin
 				end if;
 			end if;
 	end process divisor;
-		
-	AC_low <= AC_output(3 downto 0);
-	AC_high <= AC_output(7 downto 4);
-	PC_low <= PC_output(3 downto 0);
-	PC_high <= PC_output(7 downto 4);
+	
+	
   
 	process(clock200hz, alt_view)
 	variable ctrl: bit_vector(1 downto 0);
@@ -373,19 +363,19 @@ begin
 			else			--visualizar ACC
 				if (ctrl="00") then
 					selDisplay<="1110";
-					display <= binTo7seg(AC_low);
+					display <= binTo7seg(AC_output(3 downto 0));
 					ctrl:="01";
 				elsif (ctrl="01") then 
 					selDisplay<="1101";
-					display <= binTo7seg(AC_high);						
+					display <= binTo7seg(AC_output(7 downto 4));						
 					ctrl:="10";
 				elsif (ctrl="10") then 
 					selDisplay<="1011";
-					display <= binTo7seg(PC_low);
+					display <= binTo7seg(PC_output(3 downto 0));
 					ctrl:="11";
 				else
 					selDisplay<="0111";
-					display <= binTo7seg(PC_high);
+					display <= binTo7seg(PC_output(7 downto 4));
 					ctrl:="00";
 				end if;
 			end if;
@@ -419,9 +409,11 @@ begin
 			BRAM_b_data_in_high <= BRAM_b_output(7 downto 4) + 1; 
 		end if;
 	end process;
+	resetMain <= rst_or_bram_in_low when (alt_view = '0') else '0';
+	run <= run_or_bram_in_high when (alt_view = '0') else '0';
 	
-	b_in_high <= prox_passo;
-	b_in_low <= resetMain;
+	b_in_high <= run_or_bram_in_high when (writeB = '1' and alt_view = '1') else '0';
+	b_in_low <= rst_or_bram_in_low when (writeB = '1' and alt_view = '1') else '0';
 	
 	BRAM_b_data_in <= BRAM_b_data_in_high & BRAM_b_data_in_low;
 	BRAM_b_input <= BRAM_b_high_input & BRAM_b_low_input;
@@ -431,5 +423,5 @@ begin
 	
 	b_writeMEM(0) <= writeB;
 	
-	run <= ender_low;
+	
 end Behavioral;

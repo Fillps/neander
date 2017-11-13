@@ -1,70 +1,70 @@
 V3 35
-FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" 2017/11/07.01:26:03 P.20131013
-EN work/control_unit 1510025616 \
+FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" 2017/11/07.18:21:38 P.20131013
+EN work/control_unit 1510086112 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/std_logic_arith 1381692177
-AR work/control_unit/Behavioral 1510025617 \
+AR work/control_unit/Behavioral 1510086113 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/control_unit.vhd" \
-      EN work/control_unit 1510025616
+      EN work/control_unit 1510086112
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/decod.vhd" 2017/11/05.16:33:13 P.20131013
-EN work/decod 1510025614 \
+EN work/decod 1510086110 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/decod.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/decod/Behavioral 1510025615 \
+AR work/decod/Behavioral 1510086111 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/decod.vhd" \
-      EN work/decod 1510025614
+      EN work/decod 1510086110
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ipcore_dir/bram.vhd" 2017/11/07.00:44:53 P.20131013
-EN work/bram 1510025618 \
+EN work/bram 1510086114 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ipcore_dir/bram.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/bram/bram_a 1510025619 \
+AR work/bram/bram_a 1510086115 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ipcore_dir/bram.vhd" \
-      EN work/bram 1510025618
+      EN work/bram 1510086114
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/mux.vhd" 2017/11/02.17:02:20 P.20131013
-EN work/mux 1510025612 \
+EN work/mux 1510086108 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/mux.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/mux/Behavioral 1510025613 \
+AR work/mux/Behavioral 1510086109 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/mux.vhd" \
-      EN work/mux 1510025612
-FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" 2017/11/06.17:27:46 P.20131013
-EN work/neander 1510025620 \
+      EN work/mux 1510086108
+FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" 2017/11/07.18:21:09 P.20131013
+EN work/neander 1510086116 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/std_logic_arith 1381692177
-AR work/neander/Behavioral 1510025621 \
+AR work/neander/Behavioral 1510086117 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/neander.vhd" \
-      EN work/neander 1510025620 CP reg8 CP pc CP reg_nz CP ula CP mux CP decod \
+      EN work/neander 1510086116 CP reg8 CP pc CP reg_nz CP ula CP mux CP decod \
       CP control_unit CP bram
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhd" 2017/11/02.12:15:11 P.20131013
-EN work/pc 1510025606 \
+EN work/pc 1510086102 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/std_logic_arith 1381692177
-AR work/PC/Behavioral 1510025607 \
+AR work/PC/Behavioral 1510086103 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/pc.vhd" \
-      EN work/pc 1510025606
+      EN work/pc 1510086102
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg8.vhd" 2017/11/02.12:11:39 P.20131013
-EN work/reg8 1510025604 \
+EN work/reg8 1510086100 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg8.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/std_logic_arith 1381692177
-AR work/reg8/Behavioral 1510025605 \
+AR work/reg8/Behavioral 1510086101 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg8.vhd" \
-      EN work/reg8 1510025604
+      EN work/reg8 1510086100
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg_nz.vhd" 2017/11/02.12:11:29 P.20131013
-EN work/reg_nz 1510025608 \
+EN work/reg_nz 1510086104 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg_nz.vhd" \
       PB ieee/std_logic_1164 1381692176
-AR work/reg_nz/Behavioral 1510025609 \
+AR work/reg_nz/Behavioral 1510086105 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/reg_nz.vhd" \
-      EN work/reg_nz 1510025608
+      EN work/reg_nz 1510086104
 FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ula.vhd" 2017/11/02.17:52:55 P.20131013
-EN work/ula 1510025610 \
+EN work/ula 1510086106 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ula.vhd" \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_SIGNED 1381692178 \
       PB ieee/std_logic_arith 1381692177
-AR work/ula/Behavioral 1510025611 \
+AR work/ula/Behavioral 1510086107 \
       FL "D:/Documents/Google Drive/Eng Comp/UFGRS/INF/sistemas digitais/neander/ula.vhd" \
-      EN work/ula 1510025610
+      EN work/ula 1510086106
